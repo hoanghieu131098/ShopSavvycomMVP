@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/White"
+    tools:context=".ui.splash.view.SplashActivity">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/img_splash"
+        android:layout_width="@dimen/width_height_300dp"
+        android:layout_height="@dimen/width_height_300dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/height_60dp"
+        android:src="@drawable/logo_2" />
+
+    <com.github.ybq.android.spinkit.SpinKitView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/progess_splash_screen"
+        style="@style/SpinKitView.Large"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/height_40dp"
+        android:layout_below="@+id/img_splash"
+        app:SpinKit_Color="@color/colorPrimary" />
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_splash"
+        android:layout_width="@dimen/width_height_300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/margin_20dp"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:lines="2"
+        android:text="Được phục vụ khách hàng là niềm vinh hạnh của chúng tôi!"
+        android:textColor="@color/Black" />
+
+</RelativeLayout>

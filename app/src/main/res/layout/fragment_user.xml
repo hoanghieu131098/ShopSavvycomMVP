@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/Gray"
+    android:theme="@style/AppTheme.NoActionbar"
+    android:orientation="vertical"
+    tools:context=".ui.main.fragments.userfragment.view.UserFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_150dp_profile_user"
+                android:weightSum="4"
+                android:background="@drawable/custom_bg_profile_user"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:layout_marginBottom="@dimen/margin_20dp"
+                    android:orientation="vertical">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/profile_img_nguoidung"
+                        android:layout_width="70dp"
+                        android:layout_marginLeft="@dimen/margin_5dp"
+                        android:layout_height="70dp"
+                        android:src="@drawable/avatar_test" />
+
+                    <LinearLayout
+                        android:gravity="bottom"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="bottom"
+                        android:paddingBottom="@dimen/margin_10dp"
+                        android:layout_marginLeft="@dimen/margin_5dp"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_username"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="User Name"
+                            android:textColor="@color/White"
+                            android:textSize="@dimen/tv_size_20sp" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_useremail"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="hoanghieu@savvycom.com"
+                            android:textColor="@color/White"
+                            android:textSize="@dimen/tv_size_16sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:layout_marginTop="@dimen/margin_10dp"
+                    android:layout_marginRight="@dimen/margin_10dp"
+                    android:layout_marginBottom="@dimen/margin_10dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:gravity="right|bottom"
+                        android:orientation="horizontal">
+                     <RelativeLayout
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content">
+                         <LinearLayout
+                             android:id="@+id/ln_1"
+                             android:layout_width="40dp"
+                             android:gravity="bottom"
+                             android:layout_height="40dp"
+                             android:orientation="vertical">
+                             <androidx.appcompat.widget.AppCompatImageView
+                                 android:id="@+id/img_cart_profile"
+                                 android:layout_width="@dimen/padding_30dp"
+                                 android:layout_height="@dimen/padding_30dp"
+                                 android:src="@drawable/ic_cart_profile" />
+
+                         </LinearLayout>
+                         <TextView
+                             android:id="@+id/tv_Item_Count_Cart_User"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:background="@drawable/custom_bg_tb_notifi_item_count"
+                             android:text="12"
+                             android:visibility="invisible"
+                             android:layout_alignRight="@id/ln_1"
+                             android:layout_marginBottom="5dp"
+                             android:textStyle="bold"
+                             android:textColor="@color/White"
+                             android:textSize="9sp" />
+                     </RelativeLayout>
+
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/img_message_profile"
+                            android:layout_width="@dimen/padding_30dp"
+                            android:layout_height="@dimen/padding_30dp"
+                            android:layout_marginLeft="@dimen/padding_30dp"
+                            android:src="@drawable/ic_message" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="bottom"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btn_login_profile"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/width_height_35dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/custom_bg_btn_login_profile"
+                            android:text="Đăng nhập"
+                            android:padding="@dimen/with_h_2dp"
+                            android:textAllCaps="false"
+                            android:layout_marginRight="2dp"
+                            android:textColor="@color/Red"
+                            android:textSize="@dimen/tv_size_15sp" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btn_signin_profile"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/width_height_35dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/custom_bg_btn_sign_in_profile"
+                            android:text="Đăng ký"
+                            android:padding="@dimen/with_h_2dp"
+                            android:textAllCaps="false"
+                            android:layout_marginLeft="@dimen/with_h_2dp"
+                            android:textColor="@color/White"
+                            android:textSize="@dimen/tv_size_15sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <com.example.shopsavvycommvp.custom.ItemProfileUser
+                android:layout_marginTop="@dimen/margin_10dp"
+                android:id="@+id/item_profile_purchar_order"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:iconView="@drawable/ic_ordered"
+                app:titleView="Đơn Mua" />
+            <com.example.shopsavvycommvp.custom.ItemProfileUser
+                android:id="@+id/item_profile_card_service"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:iconView="@drawable/ic_card_service"
+                app:titleView="Đơn Nạp thẻ &amp; Dịch vụ"/>
+          <LinearLayout
+              android:layout_marginTop="@dimen/margin_10dp"
+              android:background="@color/White"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/margin_10dp"
+                android:background="@color/White"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10.10 NEW"
+                    android:textStyle="bold"
+                    android:textAllCaps="true"
+                    android:textColor="@color/Red"
+                    android:textSize="@dimen/tv_size_16sp" />
+                <TextView
+                    android:id="@+id/tv_viewAll_item_fm_home"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/margin_10dp"
+                    android:gravity="right"
+                    android:text="Xem thêm"
+                    android:textColor="@color/corlor_tv_black"
+                    android:textSize="@dimen/tv_size_15sp" />
+
+            </LinearLayout>
+            <View
+                android:layout_marginStart="@dimen/padding_15dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/Gray"
+                />
+            <LinearLayout
+                android:paddingTop="@dimen/margin_10dp"
+                android:paddingBottom="@dimen/margin_10dp"
+                android:paddingLeft="@dimen/margin_20dp"
+                android:paddingRight="@dimen/margin_20dp"
+                android:background="@color/White"
+                android:weightSum="4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:baselineAligned="false">
+                <LinearLayout
+                    android:layout_marginEnd="@dimen/margin_5dp"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:src="@drawable/ic_sales"
+                        android:layout_width="@dimen/height_60dp"
+                        android:layout_height="@dimen/height_60dp"/>
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_marginTop="@dimen/margin_10dp"
+                        android:layout_width="match_parent"
+                        android:textSize="9sp"
+                        android:lines="1"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:text="10.10"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginRight="@dimen/margin_5dp"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:src="@drawable/ic_freeship"
+                        android:layout_width="@dimen/height_60dp"
+                        android:layout_height="@dimen/height_60dp"/>
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_marginTop="@dimen/margin_10dp"
+                        android:layout_width="match_parent"
+                        android:textSize="9sp"
+                        android:lines="1"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:text="Freeship 50k"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginRight="@dimen/margin_5dp"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:src="@drawable/ic_game"
+                        android:layout_width="@dimen/height_60dp"
+                        android:layout_height="@dimen/height_60dp"/>
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_marginTop="@dimen/margin_10dp"
+                        android:layout_width="match_parent"
+                        android:textSize="9sp"
+                        android:lines="1"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:text="Shop Game"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/img_item_category"
+                        android:src="@drawable/ic_discount"
+                        android:layout_width="@dimen/height_60dp"
+                        android:layout_height="@dimen/height_60dp"/>
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_name_item_category"
+                        android:layout_marginTop="@dimen/margin_10dp"
+                        android:layout_width="match_parent"
+                        android:textSize="9sp"
+                        android:lines="1"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:text="Mã giảm giá"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </LinearLayout>
+          </LinearLayout>
+            <com.example.shopsavvycommvp.custom.ItemProfileUser
+                android:id="@+id/item_profile_favorited"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:iconView="@drawable/ic_favorited"
+                app:titleView="Đã thích" />
+            <com.example.shopsavvycommvp.custom.ItemProfileUser
+                android:id="@+id/item_profile_new_see"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:iconView="@drawable/ic_new_see"
+                app:titleView="Mới xem" />
+            <com.example.shopsavvycommvp.custom.ItemProfileUser
+                android:id="@+id/item_profile_wallet_shop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:iconView="@drawable/ic_wallet_shop"
+                app:titleView="Ví Shop" />
+            <com.example.shopsavvycommvp.custom.ItemProfileUser
+                android:id="@+id/item_profile_xu_shop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:iconView="@drawable/ic_xu_shop"
+                app:titleView="Shop Xu" />
+            <com.example.shopsavvycommvp.custom.ItemProfileUser
+                android:id="@+id/item_profile_evaluate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:iconView="@drawable/ic_evaluate"
+                app:titleView="Đánh giá của tôi" />
+            <com.example.shopsavvycommvp.custom.ItemProfileUser
+                android:id="@+id/item_profile_wallet_voucher"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:iconView="@drawable/ic_wallet_shop"
+                app:titleView="Ví Voucher" />
+            <com.example.shopsavvycommvp.custom.ItemProfileUser
+                android:layout_marginTop="@dimen/margin_10dp"
+                android:id="@+id/item_profile_setup_account"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:iconView="@drawable/ic_setup_account"
+                app:titleView="Thiết lập tài khoản" />
+            <com.example.shopsavvycommvp.custom.ItemProfileUser
+                android:id="@+id/item_profile_help_center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:iconView="@drawable/ic_help"
+                app:titleView="Trung tâm trợ giúp" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</RelativeLayout>

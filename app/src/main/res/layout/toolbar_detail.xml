@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#00000000"
+    android:orientation="vertical"
+    app:contentInsetStart="0dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:orientation="horizontal"
+        android:weightSum="5">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_tb_back_detail"
+            style="@style/SettingAppCompatImageViewNextItemUserStyle"
+            android:layout_weight="0.5"
+            android:src="@drawable/ic_back" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_tb_title_clothes_detail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/tv_size_18sp"
+            android:ellipsize="end"
+            android:textColor="@color/Black"
+            android:lines="1"
+            android:layout_weight="4"
+            android:text="Aos ddepj aksjka dskjdkss dskds sddsd dssdsd" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_tb_cart_detail"
+            style="@style/SettingAppCompatImageViewNextItemUserStyle"
+            android:layout_weight="0.5"
+            android:src="@drawable/ic_cart_detail"
+            android:tint="@color/DarkGray" />
+
+
+    </LinearLayout>
+</androidx.appcompat.widget.Toolbar>

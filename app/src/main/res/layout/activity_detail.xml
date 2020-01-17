@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/White"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".ui.detailproduct.activities.view.DetailActivity">
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar_detail"
+        android:layout_width="match_parent"
+        android:layout_height="350dp">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/White"
+            app:contentScrim="@color/White"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                <com.smarteist.autoimageslider.SliderView
+                    android:id="@+id/imageSlider_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    app:sliderAnimationDuration="600"
+                    app:sliderAutoCycleDirection="back_and_forth"
+                    app:sliderAutoCycleEnabled="true"
+                    app:sliderCircularHandlerEnabled="true"
+                    app:sliderIndicatorAnimationDuration="600"
+                    app:sliderIndicatorGravity="center_horizontal|bottom"
+                    app:sliderIndicatorMargin="15dp"
+                    app:sliderIndicatorOrientation="horizontal"
+                    app:sliderIndicatorPadding="3dp"
+                    app:sliderIndicatorRadius="2dp"
+                    app:sliderIndicatorSelectedColor="#5A5A5A"
+                    app:sliderIndicatorUnselectedColor="#FFF"
+                    app:sliderScrollTimeInSec="1"
+                    app:sliderStartAutoCycle="true" />
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolBar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/padding_30dp"
+                    android:layout_margin="@dimen/margin_20dp"
+                    android:gravity="center_horizontal"
+                   >
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_alignParentLeft="true"
+                        android:id="@+id/img_tb_back_detail"
+                        style="@style/SettingAppCompatImageViewNextItemUserStyle"
+                        android:src="@drawable/ic_back"
+                        android:tint="@color/Red" />
+
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_text"
+                            android:text="aaffsdadsdfdfsdfsdfdcvaasssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss"
+                            android:textColor="@color/Black"
+                            android:ellipsize="end"
+                            android:gravity="center"
+                            android:layout_toRightOf="@+id/img_tb_back_detail"
+                            android:lines="1"
+                            android:layout_toLeftOf="@+id/img_tb_cart_detail"
+                            android:textStyle="bold"
+                            android:layout_marginRight="@dimen/margin_10dp"
+                            android:layout_marginLeft="@dimen/margin_10dp"
+                           android:layout_centerInParent="true"
+                            android:visibility="visible"
+                            android:layout_width="match_parent"
+                            android:textSize="@dimen/tv_size_16sp"
+                            android:layout_height="wrap_content"/>
+                        <androidx.appcompat.widget.AppCompatImageView
+                           android:layout_alignParentRight="true"
+                            android:id="@+id/img_tb_cart_detail"
+                            style="@style/SettingAppCompatImageViewNextItemUserStyle"
+                            android:src="@drawable/ic_cart_detail"
+                            android:tint="@color/DarkGray" />
+
+                </RelativeLayout>
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/ntsc_view_detail"
+        android:layout_below="@+id/app_bar_detail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_clothes_name_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_19dp"
+                android:layout_marginTop="@dimen/margin_19dp"
+                android:layout_marginBottom="@dimen/margin_9dp"
+                android:text="@string/label_name_clothes"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/tv_size_username_22sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_clothes_price_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_19dp"
+                android:layout_marginBottom="@dimen/margin_9dp"
+                android:text="$47.6"
+                android:textColor="@color/Red"
+                android:textSize="@dimen/tv_size_username_22sp" />
+
+            <!--information and rating-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tablayout_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/White"
+                    app:tabGravity="fill"
+                    app:tabIndicatorColor="@color/tabIndicator_detail"
+                    app:tabMode="fixed"
+                    app:tabSelectedTextColor="@color/Black"
+                    app:tabTextColor="@color/DarkGray" />
+
+                <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/viewpager_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="500dp"
+                    android:paddingBottom="@dimen/height_50dp"
+                    android:layout_marginBottom="@dimen/height_40dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="@dimen/margin_19dp"
+        android:elevation="@dimen/padding_15dp"
+        android:gravity="right"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/padding_30dp">
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_buynow_detail"
+            android:background="@drawable/custom_bg_button_buynow_detail"
+            android:text="BUY NOW"
+            android:textColor="@color/Red"
+            android:layout_height="@dimen/height_40dp"
+            android:layout_width="@dimen/width_140dp" />
+    </LinearLayout>
+    </RelativeLayout>

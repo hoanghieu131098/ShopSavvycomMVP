@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/margin_10dp"
+    android:background="@color/White"
+    android:padding="@dimen/margin_5dp"
+    android:orientation="vertical">
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/img_item_category"
+        android:src="@drawable/avatar_test"
+        android:layout_width="@dimen/height_60dp"
+        android:layout_height="@dimen/height_60dp"/>
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_name_item_category"
+        android:layout_marginTop="@dimen/margin_10dp"
+        android:layout_width="match_parent"
+        android:textSize="@dimen/tv_size_13sp"
+        android:lines="2"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:textColor="@color/Black"
+        android:text="Máy ảnh máy quay video"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

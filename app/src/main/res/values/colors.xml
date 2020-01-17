@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#f77e4e</color>
+    <color name="colorPrimaryDark">#f77e4e</color>
+    <color name="colorAccent">#D81B60</color>
+
+    //color icon bottom navigation
+    <color name="tab_inActiveColor">#9b9b9b</color>
+    <color name="tab_ActiveColor">#ef4e33</color>
+
+    <color name="White">#FFFFFF</color>
+
+    <color name="Gray">#ddf2eded</color>
+
+    <color name="Black">#000000</color>
+    <color name="Black_tv_name_cart">#A4000000</color>
+    <color name="DarkGray">#dd9a9393</color>
+    <color name="border_category">#2196F3</color>
+    <color name="Red">#f20000</color>
+    <color name="Black_Gray">#4a4a4a</color>
+    <color name="tabIndicator_detail">#0070d6</color>
+    <color name="bg_buynow_detail">#dadee3</color>
+    <color name="border_buynow">#1CFF00</color>
+    <color name="bg_login_fb_border">#0000D6</color>
+    <color name="bg_login_fb">#0025FF</color>
+    <color name="corlor_tv_black">#424242</color>
+    <color name="corlortextĐetailOrder">#CE000000</color>
+    <color name="corlortextDetailOrderStatus">#00FF0C</color>1
+</resources>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroundorder"
+    tools:context=".ui.order.view.OrderActivity">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="44.2dp"
+                android:orientation="horizontal">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/img_Profile_Order"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="24dp"
+                    app:civ_border_color="#FF000000" />
+
+                <TextView
+                    android:id="@+id/tv_Username_Profile_Order"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="13.4dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Hoàng Hiếu"
+                    android:textColor="#ffffff"
+                    android:textSize="19.2sp" />
+            </LinearLayout>
+            <TextView
+                android:id="@+id/tvDs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/lb_list_product"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/tv_18sp" />
+            <TextView
+                android:id="@+id/tv_list_Product"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="30dp"
+                android:text=""
+                android:textColor="@color/Red"
+                android:textSize="@dimen/tv_size_20sp" />
+            <TextView
+                android:id="@+id/tvTotalMoney"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="10dp"
+                android:text="ToTal: $44"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:textSize="@dimen/tv_18sp" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="22.1dp"
+                android:layout_marginTop="@dimen/margin_10dp"
+                android:layout_marginRight="21.1dp"
+                android:orientation="vertical"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp">
+
+
+                <EditText
+                    android:id="@+id/ed_phone_number"
+                    style="@style/MyEditTextStyle2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:hint="Input Phone Number..."
+                    android:inputType="phone"
+                    android:textColor="@color/White"
+                    android:textColorHint="@color/White"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/edt_diachi"
+                    style="@style/MyEditTextStyle2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:hint="Input Address..."
+                    android:textColor="@color/White"
+                    android:textColorHint="@color/White"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_order"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="22dp"
+                android:layout_marginRight="35dp"
+                android:layout_marginBottom="@dimen/padding_30dp"
+                android:background="@drawable/custom_bg_btn_order"
+                android:gravity="center"
+                android:text="Order"
+                android:textAllCaps="false"
+                android:textColor="#ffffff"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>

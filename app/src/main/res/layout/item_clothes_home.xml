@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/width_height_180dp"
+    android:layout_height="wrap_content"
+    android:background="@color/White"
+    android:layout_marginBottom="6dp"
+    android:id="@+id/ln_item_home"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ProgressBar
+            android:id="@+id/progress_home"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_160dp"
+            android:backgroundTint="@color/colorPrimary"
+            android:visibility="visible" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_clothes_home"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_160dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/avatar_test" />
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_clothes_name_item_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:lines="2"
+            android:text="French Toast Men's Short Sleeve Oxford Shirt also viewed"
+            android:textColor="@color/Black"
+            android:textSize="@dimen/tv_size_18sp" />
+
+        <TextView
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:id="@+id/tv_clothes_price_item_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/margin_20dp"
+            android:text="$22.00"
+            android:textColor="@color/tab_ActiveColor" />
+    </LinearLayout>
+
+
+</LinearLayout>

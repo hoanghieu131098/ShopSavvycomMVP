@@ -1,0 +1,170 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+android {
+    compileSdkVersion 28
+    buildToolsVersion "29.0.1"
+    defaultConfig {
+        applicationId "com.example.shopsavvycommvp"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        debug {
+            buildConfigField("String", "BASE_URL", "\"https://shop-savvycom.000webhostapp.com/\"")
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$rootProject.kotlinVersion"
+
+    // android support libraries
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'androidx.vectordrawable:vectordrawable:1.0.1'
+    implementation 'androidx.vectordrawable:vectordrawable-animated:1.0.0'
+
+    // network
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp3LoggingVersion"
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+
+    // fonts
+    implementation "uk.co.chrisjenx:calligraphy:$rootProject.calligraphyVersion"
+
+    // image
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+
+    // parser
+    implementation "com.google.code.gson:gson:$rootProject.gsonVersion"
+
+    // dependency injection
+    implementation "com.google.dagger:dagger:$rootProject.dagger2Version"
+    kapt "com.google.dagger:dagger-compiler:$rootProject.dagger2Version"
+    kapt "com.google.dagger:dagger-android-processor:$rootProject.dagger2Version"
+    implementation "com.google.dagger:dagger-android-support:$rootProject.dagger2Version"
+
+    // reactive
+    implementation "io.reactivex.rxjava2:rxjava:$rootProject.rxjava2Version"
+    implementation "io.reactivex.rxjava2:rxandroid:$rootProject.rxandroidVersion"
+
+    // code generator for view
+    kapt "com.jakewharton:butterknife-compiler:$rootProject.butterKnifeVersion"
+
+    // swipe view
+    implementation "com.mindorks:placeholderview:$rootProject.placeholderviewVersion"
+
+    // logger
+    implementation "com.jakewharton.timber:timber:$rootProject.timberVersion"
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.13.1'
+
+    // dependencies for local unit tests
+    testImplementation "junit:junit:$rootProject.ext.junitVersion"
+    testImplementation "org.mockito:mockito-core:$rootProject.mockitoVersion"
+    kaptTest "com.google.dagger:dagger-compiler:$rootProject.dagger2Version"
+
+    //navigation
+    implementation 'androidx.navigation:navigation-fragment:2.1.0-beta02'
+    implementation 'androidx.navigation:navigation-ui:2.1.0-beta02'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.1.0-beta02'
+
+    implementation "com.intuit.sdp:sdp-android:$scalableVersion"
+    implementation "com.intuit.ssp:ssp-android:$scalableVersion"
+
+    // UI Testing
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-intents:3.1.1'
+    androidTestImplementation "org.mockito:mockito-core:$rootProject.mockitoVersion"
+    kaptAndroidTest "com.google.dagger:dagger-compiler:$rootProject.dagger2Version"
+
+    // Android Kotlin Extension
+    implementation "androidx.core:core-ktx:$rootProject.androidKTXVersion"
+
+    // circle image view
+    implementation 'de.hdodenhof:circleimageview:3.0.0'
+
+    implementation "com.intuit.sdp:sdp-android:$scalableVersion"
+    implementation "com.intuit.ssp:ssp-android:$scalableVersion"
+
+    implementation 'com.facebook.android:facebook-login:4.42.0'
+
+    implementation 'com.google.android.gms:play-services-auth:17.0.0'
+
+    implementation "com.google.android.exoplayer:exoplayer-core:$exoVersion"
+    implementation "com.google.android.exoplayer:exoplayer-dash:$exoVersion"
+    implementation "com.google.android.exoplayer:exoplayer-ui:$exoVersion"
+
+    // rx binding
+    implementation "com.jakewharton.rxbinding3:rxbinding-core:$rxbindingVersion"
+    implementation "com.jakewharton.rxbinding3:rxbinding-appcompat:$rxbindingVersion"
+    implementation "com.jakewharton.rxbinding3:rxbinding-recyclerview:$rxbindingVersion"
+
+    implementation 'com.jakewharton.rxbinding:rxbinding:0.4.0'
+    implementation 'com.jakewharton.rxbinding:rxbinding-appcompat-v7:0.4.0'
+
+    implementation 'com.github.tbruyelle:rxpermissions:0.10.2'
+    // video player
+    implementation 'cn.jzvd:jiaozivideoplayer:7.0.4'
+    // Event Bus
+    implementation 'org.greenrobot:eventbus:3.1.1'
+    // Crop image
+    implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
+
+    implementation 'com.google.firebase:firebase-core:17.2.0'
+
+    // Progress bar
+    implementation 'com.github.ybq:Android-SpinKit:1.4.0'
+    implementation "com.android.support:support-compat:28.0.0"
+    //Slider view image
+    implementation 'com.github.smarteist:autoimageslider:1.3.2'
+    //google Service
+    implementation 'com.google.firebase:firebase-analytics:17.2.0'
+    implementation 'com.google.firebase:firebase-messaging:20.0.0'
+    implementation 'com.google.firebase:firebase-auth:19.1.0'
+    implementation 'com.google.android.gms:play-services-auth:17.0.0'
+    implementation 'com.google.firebase:firebase-storage:19.1.0'
+    implementation 'com.google.firebase:firebase-database:19.1.0'
+
+    //bo image,load img
+    implementation 'de.hdodenhof:circleimageview:2.2.0'
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
+    //smile
+    implementation 'com.github.sujithkanna:smileyrating:1.6.8'
+    //proggess
+    implementation 'com.github.ybq:Android-SpinKit:1.4.0'
+
+    //live data
+    def lifecycle_version = "1.1.1"
+    implementation "android.arch.lifecycle:runtime:$lifecycle_version"
+
+    implementation 'com.facebook.android:facebook-android-sdk:[4,5)'
+
+
+
+}
+apply plugin: 'com.google.gms.google-services'

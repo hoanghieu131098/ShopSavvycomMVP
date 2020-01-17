@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/padding_15dp"
+
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_item_product_cart"
+            android:layout_width="80dp"
+            android:layout_height="70dp"
+            android:layout_alignParentLeft="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/avatar_test"
+
+            />
+
+        <LinearLayout
+            android:id="@+id/ln_center_item_cart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/padding_15dp"
+            android:layout_toLeftOf="@+id/img_item_delete_cart"
+            android:layout_toRightOf="@+id/img_item_product_cart"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_item_name_cart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:lines="2"
+                android:text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                android:textColor="@color/Black_tv_name_cart"
+                android:textSize="@dimen/tv_size_16sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_item_price_cart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_5dp"
+                android:text="$ 24.0"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/tv_size_15sp"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_item_delete_cart"
+            android:layout_width="@dimen/width_height_35dp"
+            android:layout_height="@dimen/width_height_35dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/padding_15dp"
+            android:src="@drawable/ic_delete" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/with_h_2dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_item_minus_cart"
+            android:layout_width="@dimen/padding_30dp"
+            android:layout_height="25dp"
+            android:background="@drawable/custom_bg_item_minus_plus_cart"
+            android:src="@drawable/ic_minus" />
+
+        <LinearLayout
+            android:layout_width="100dp"
+            android:layout_height="25dp"
+            android:gravity="center"
+            android:background="@drawable/custom_bg_item_minus_plus_cart"
+            android:orientation="vertical">
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_item_number_cart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5"
+                android:textColor="#FF1000"
+
+                android:textSize="@dimen/tv_size_18sp" />
+        </LinearLayout>
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_item_plus_cart"
+            android:layout_width="@dimen/padding_30dp"
+            android:layout_height="25dp"
+            android:background="@drawable/custom_bg_item_minus_plus_cart"
+            android:src="@drawable/ic_plus" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="@dimen/margin_10dp"
+    android:background="@color/White"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/margin_20dp"
+    android:paddingRight="@dimen/margin_20dp">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/DarkGray"/>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_item_reviewer"
+            android:layout_width="@dimen/height_50dp"
+            android:layout_height="@dimen/height_50dp"
+            android:layout_margin="@dimen/margin_10dp"
+            android:src="@drawable/avatar_test" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_item_comment"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_margin="@dimen/margin_5dp"
+            android:src="@drawable/good" />
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_bg_item_comment"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="@dimen/margin_5dp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_item_name_reviewer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="Hoàng Hiếu"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/tv_size_16sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_item_content_reviewer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Quaanf aos ffffffffffffffddddn !"
+                android:textColor="@color/corlor_tv_black"
+                android:textSize="@dimen/tv_size_16sp" />
+        </LinearLayout>
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:gravity="right"
+           android:orientation="horizontal">
+           <androidx.appcompat.widget.AppCompatTextView
+               android:id="@+id/tv_reply_comment"
+               android:text="reply"
+               android:textColor="@color/Black"
+               android:textSize="@dimen/tv_size_15sp"
+               android:padding="@dimen/margin_5dp"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"/>
+
+       </LinearLayout>
+
+
+    </LinearLayout>
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycle_reply_item_comment"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/height_60dp"/>
+</LinearLayout>

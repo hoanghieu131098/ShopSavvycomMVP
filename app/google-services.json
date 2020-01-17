@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "545629306697",
+    "firebase_url": "https://shopsavvycom.firebaseio.com",
+    "project_id": "shopsavvycom",
+    "storage_bucket": "shopsavvycom.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:545629306697:android:4da1da43e6abdf4f036498",
+        "android_client_info": {
+          "package_name": "com.example.shopsavvycommvp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "545629306697-2vl1am5a25fibbje7sqmt0pm2fupfpg4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.shopsavvycommvp",
+            "certificate_hash": "51dfadbe9baea6749a986c4a12a8ab7e20c1f268"
+          }
+        },
+        {
+          "client_id": "545629306697-0s0vd3ikp5b4j693h2hq0ionnkio9mge.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDLDvKGLLOlxla7ENHZ2XWww-Mmu-Yh0Kg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "545629306697-0s0vd3ikp5b4j693h2hq0ionnkio9mge.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ItemProfileUser">
+        <attr name="iconView" format="reference"/>
+        <attr name="titleView" format="string"/>
+    </declare-styleable>
+</resources>

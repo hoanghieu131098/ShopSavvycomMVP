@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/White"
+    android:paddingBottom="@dimen/height_50dp"
+    android:orientation="vertical"
+    tools:context=".ui.detailproduct.fragments.ratingfragment.view.RatingFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_text_infor"
+                android:text="@string/label_text_vote_rate"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/tv_size_18sp" />
+
+            <com.hsalf.smilerating.SmileRating
+                android:id="@+id/smile_rating"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:textSelectionColor="@color/Red" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/ed_contentreview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_text_infor"
+                android:hint="Input review..."
+                android:textColor="@color/Black"
+                android:textColorHint="@color/DarkGray"
+                android:textSize="@dimen/tv_size_18sp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_sendreview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/margin_5dp"
+                android:background="@drawable/custom_bg_button_sendreview_rate"
+                android:text="Send review"
+                android:textAllCaps="false"
+                android:textColor="@color/White" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycle_Rate"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/margin_20dp"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+            <RelativeLayout
+                android:id="@+id/relative_input_reply"
+                android:gravity="center_horizontal"
+                android:layout_margin="16dp"
+                android:visibility="invisible"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/margin_10dp"
+                android:background="@drawable/custom_bg_edt_reply"
+                >
+                <LinearLayout
+                    android:layout_marginBottom="@dimen/margin_10dp"
+                    android:id="@+id/liner_input_reply"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/tv_size_16sp"
+                        android:text="Reply: "
+                        android:textColor="@color/corlor_tv_black"/>
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_username_reply"
+                        android:layout_width="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_10dp"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/tv_size_16sp"
+                        android:text=""
+                        android:textColor="@color/com_facebook_blue"/>
+                </LinearLayout>
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/ed_input_reply"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/liner_input_reply"
+                    android:background="@null"
+                    android:hint="Input reply"
+                    android:text=""
+                    android:textColor="@color/corlor_tv_black"
+                    android:layout_toLeftOf="@+id/img_send_reply"
+                    android:layout_alignParentLeft="true"
+                    android:textSize="@dimen/tv_size_18sp"/>
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_centerInParent="true"
+                    android:id="@+id/img_send_reply"
+                    android:layout_marginStart="@dimen/margin_10dp"
+                    android:layout_width="@dimen/padding_30dp"
+                    android:layout_height="@dimen/padding_30dp"
+                    android:src="@drawable/ic_send_reply"
+                    android:layout_alignParentEnd="true"/>
+            </RelativeLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

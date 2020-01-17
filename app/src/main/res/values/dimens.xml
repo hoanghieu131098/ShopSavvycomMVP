@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="tv_size_15sp">15sp</dimen>
+    <dimen name="margin_10dp">10dp</dimen>
+    <dimen name="margin_5dp">5dp</dimen>
+    <dimen name="margin_tv_name_category_2dp">2dp</dimen>
+    <dimen name="width_height_img_fashion_80dp">80dp</dimen>
+    <dimen name="height_60dp">60dp</dimen>
+    <dimen name="height_50dp">50dp</dimen>
+    <dimen name="tv_size_16sp">16sp</dimen>
+    <dimen name="height_150dp_profile_user">150dp</dimen>
+    <dimen name="margin_20dp">20dp</dimen>
+    <dimen name="width_height_75dp_avatar_profile_user">75dp</dimen>
+    <dimen name="margin_17dp">17dp</dimen>
+    <dimen name="tv_size_username_22sp">22sp</dimen>
+    <dimen name="tv_size_18sp">18sp</dimen>
+    <dimen name="padding_15dp">15dp</dimen>
+    <dimen name="width_height_24dp_img">24dp</dimen>
+    <dimen name="margin_1dp">1dp</dimen>
+    <dimen name="width_height__img_large_user">35dp</dimen>
+    <dimen name="width_height_180dp">180dp</dimen>
+    <dimen name="margin_9dp">9dp</dimen>
+    <dimen name="margin_19dp">19dp</dimen>
+    <dimen name="padding_30dp">30dp</dimen>
+    <dimen name="width_140dp">140dp</dimen>
+    <dimen name="height_40dp">40dp</dimen>
+    <dimen name="with_h_2dp">2.5dip</dimen>
+    <dimen name="height_160dp">160dp</dimen>
+    <dimen name="line_spacing_6dp">6dp</dimen>
+    <dimen name="text_size_15sp">15sp</dimen>
+    <dimen name="margin_text_infor">19.2dp</dimen>
+    <dimen name="tv_size_13sp">13sp</dimen>
+    <dimen name="width_height_35dp">35dp</dimen>
+    <dimen name="width_height_300dp">300dp</dimen>
+    <dimen name="tv_size_20sp">20sp</dimen>
+    <dimen name="tv_18sp">18sp</dimen>
+    <dimen name="margin_7dp">7.5dp</dimen>
+
+
+</resources>

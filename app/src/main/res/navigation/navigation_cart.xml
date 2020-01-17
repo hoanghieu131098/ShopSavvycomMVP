@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tab_cart"
+    app:startDestination="@+id/tabCart">
+    >
+    <fragment
+        android:id="@+id/tabCart"
+        android:name="com.example.shopsavvycommvp.ui.main.fragments.cartfragment.view.CartFragment"
+        android:label="fragment_cart"
+        tools:layout="@layout/fragment_cart">
+
+    </fragment>
+
+</navigation>

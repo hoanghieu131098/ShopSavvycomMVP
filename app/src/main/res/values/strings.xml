@@ -1,0 +1,61 @@
+<resources>
+    <string name="app_name">ShopSavvycomMVP</string>
+    <string name="ok">OK</string>
+
+    <string name="double_tap_to_exit">Double tap to exit!</string>
+    <string name="yes">Yes</string>
+    <string name="retry">Retry</string>
+
+    <string name="cancel">Cancel</string>
+    <string name="no">No</string>
+
+    <string name="label_feed">Feed</string>
+    <string name="label_profile">Profile</string>
+    <string name="label_video">Videos</string>
+    <string name="label_talents">Talents</string>
+    <string name="sign_in_with_twitter">Sign in with Twitter</string>
+    <string name="sign_in_with_google">Sign in with Google</string>
+    <string name="sign_in_with_facebook">Sign in with Facebook</string>
+    <string name="by_signing_in_you_agree_to_our_nprivacy_policy_and_terms_of_use">By signing in you agree to our\nPrivacy Policy and Terms of Use</string>
+    <string name="lable_see_all">See all</string>
+    <string name="agreed">Agreed</string>
+    <string name="just_now">\'Just now\'</string>
+    <string name="a_min_ago">\'A minute ago\'</string>
+    <string name="mins_ago">\' minutes ago\'</string>
+    <string name="a_hour_ago">\'An hour ago\'</string>
+    <string name="hour_ago">\' hours ago\'</string>
+    <string name="yesterday">\'Yesterday\'</string>
+    <string name="days_ago">\' days ago\'</string>
+    <string name="no_posts_yet">No posts yet.</string>
+    <string name="please_back_later">Please back later.</string>
+
+    <string name="content">Hình sự năm 2015</string>
+    <string name="label_name_clothes">Shirt short</string>
+    <string name="label_infor">tie justo at, auctor nunc.</string>
+    <string name="label_error">Error</string>
+    <string name="label_text_vote_rate">VOTE</string>
+    <string name="facebook_app_id">409885153058968</string> <string name="fb_login_protocol_scheme">fb409885153058968</string>
+    <string name="lb_list_product">List product:</string>
+    <string name="lb_san_pham">Sản phẩm</string>
+    <string name="tv_name_order_test">Đơn hàng 283749392 đã orfffffffffffffffgggggggggggggggggggggggggggggggggggggggggggggggggggffffffffffffffffffffffffffffffffffffder thành công!</string>
+    <string name="tv_datetime_order_test">13/10/2019 12:00:34</string>
+    <string name="lb_tb_noti_order">Mua hàng</string>
+    <string name="tv_tb_detail_order">Thông tin đơn hàng</string>
+    <string name="tv_lb_address">Địa chỉ nhận hàng</string>
+    <string name="tv_lb_detail_order_delivery">Thông tin vận chuyển</string>
+    <string name="tv_lb_detail_order_payment">Thông tin thanh toán</string>
+    <string name="tv_lb_detail_order_delivery_cheep">Vận chuyển - Giao hàng tiết kiệm</string>
+    <string name="tv_lb_discount_delivery">Giảm giá phí vận chuyển</string>
+    <string name="tv_lb_detailorder_paymentmethod">Phương thức thanh toán</string>
+    <string name="tv_payment_method_detailorder">Tài khoản ngân hàng đã liên kết AirPay</string>
+    <string name="tv_detailorder_name_shop">ShopSavvycom.com</string>
+    <string name="tv_detailorder_id_order">ID Đơn Hàng</string>
+    <string name="tv_display_detailorder_id_order">dfffffdfdffsdfds</string>
+    <string name="tv_lb_detail_order_time_order">Thời gian đặt hàng</string>
+    <string name="tv_lb_detailorder_time_payment">Thời gian thanh toán</string>
+    <string name="tv_lb_detialorder_deliver">Giao cho nhà vận chuyển</string>
+    <string name="tv_lb_detailorder_saler">Thanh toán cho người bán</string>
+    <string name="tv_lb_detailorder_visit">Ghé thăm Shop</string>
+    <string name="tv_lb_itemdetailorder_soluong">Số lượng :</string>
+
+</resources>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/Gray"
+    tools:context=".ui.notiorder.activities.view.NotiOrderActivity">
+    <LinearLayout
+        android:id="@+id/lntbnotiorder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@color/White"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/margin_10dp"
+        android:paddingBottom="@dimen/margin_10dp"
+        android:weightSum="5"
+        tools:ignore="MissingConstraints">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgTbNotiOrderBack"
+            style="@style/SettingAppCompatImageViewNextItemUserStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_weight="0.5"
+            android:src="@drawable/ic_back" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_tb_title_clothes_detail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="@string/lb_tb_noti_order"
+            android:textColor="@color/Black"
+            android:textSize="@dimen/tv_size_20sp" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgTbNotiOrderSearch"
+            style="@style/SettingAppCompatImageViewNextItemUserStyle"
+            android:layout_weight="0.5"
+            android:src="@drawable/ic_search" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgTbNotiOrderMessage"
+            style="@style/SettingAppCompatImageViewNextItemUserStyle"
+            android:layout_marginRight="@dimen/margin_10dp"
+            android:layout_weight="0.5"
+            android:src="@drawable/ic_message" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeNotiOrder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/lntbnotiorder">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tablayoutNotiOrder"
+            style="@style/CustomTabLayOutTheme"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_gravity="left"
+            android:background="@color/White"
+            app:tabGravity="center"
+            app:tabIndicatorColor="@color/colorPrimary"
+            app:tabIndicatorHeight="@dimen/with_h_2dp"
+            app:tabMode="scrollable"
+            app:tabSelectedTextColor="@color/colorPrimary"
+
+            />
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewpagerNotiOrder"
+            android:layout_marginBottom="@dimen/height_50dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/tablayoutNotiOrder"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

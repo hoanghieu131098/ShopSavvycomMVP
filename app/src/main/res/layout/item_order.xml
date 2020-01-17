@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/lnItemOrder"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_selector"
+    android:orientation="horizontal"
+    android:padding="@dimen/margin_10dp">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imgItemOrder"
+        android:layout_width="@dimen/height_60dp"
+        android:layout_height="@dimen/height_60dp"
+         />
+
+    <LinearLayout
+        android:id="@+id/lnItemOrderText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvItemOrderName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="1dp"
+            android:lines="3"
+            android:ellipsize="end"
+            android:text="@string/tv_name_order_test"
+            android:textColor="@color/Black_Gray"
+            android:textSize="@dimen/tv_size_15sp" />
+
+        <TextView
+            android:id="@+id/tvItemDateTimeOrder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_5dp"
+            android:text="@string/tv_datetime_order_test"
+            android:textSize="@dimen/tv_size_13sp" />
+    </LinearLayout>
+
+</LinearLayout>

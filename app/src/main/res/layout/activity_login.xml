@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/White"
+    tools:context=".ui.login.view.LoginActivity">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img_logo_login"
+                android:layout_width="@dimen/width_height_180dp"
+                android:layout_height="@dimen/width_height_180dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/height_40dp"
+                android:src="@drawable/logo_2" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/img_logo_login"
+                android:layout_margin="@dimen/padding_30dp"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/ed_email_login"
+                    style="@style/MyEditTextStyle2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Email/User Name"
+                    android:textColor="@color/Black"
+                    android:textSize="20sp" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/ed_password"
+                    style="@style/MyEditTextStyle2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_5dp"
+                    android:hint="Password"
+                    android:inputType="textPassword"
+                    android:textColor="@color/Black"
+                    android:textSize="20sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_forget_password"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/margin_5dp"
+                    android:text="Forget Password?"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/tv_size_15sp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_Login_Email"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_40dp"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:layout_marginTop="@dimen/padding_30dp"
+                    android:layout_marginRight="@dimen/margin_10dp"
+                    android:background="@drawable/custom_bg_btn_login"
+                    android:text="Login"
+                    android:textColor="@color/White" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/height_50dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="1"
+                        android:background="@color/DarkGray" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.5"
+                        android:gravity="center"
+                        android:text="Login quickly with" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="1"
+                        android:background="@color/DarkGray" />
+                </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_Login_FB"
+                    android:layout_width="match_parent"
+                    android:drawableLeft="@drawable/ic_fb"
+                    android:layout_height="@dimen/height_40dp"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:layout_marginTop="@dimen/padding_15dp"
+                    android:layout_marginRight="@dimen/margin_10dp"
+                    android:background="@drawable/custom_bg_btn_login_fb"
+                    android:text="Continue with facebook"
+                    android:textAllCaps="false"
+                    android:paddingLeft="@dimen/margin_10dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/White" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_Login_GG"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_40dp"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:layout_marginTop="@dimen/margin_10dp"
+                    android:layout_marginRight="@dimen/margin_10dp"
+                    android:background="@drawable/custom_bg_btn_login_gg"
+                    android:text="Continue with Google"
+                    android:textAllCaps="false"
+                    android:paddingLeft="@dimen/margin_10dp"
+                    android:drawableLeft="@drawable/ic_google"
+                    android:textColor="@color/Black" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+</RelativeLayout>
+
+
+

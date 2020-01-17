@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@color/White"
+    android:layout_height="wrap_content"
+    tools:context=".ui.detailproduct.fragments.inforfragment.view.InforFragment">
+<androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/tv_inforDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_size_15sp"
+        android:textColor="@color/DarkGray"
+        android:layout_margin="@dimen/margin_text_infor"
+        android:lineSpacingExtra="@dimen/line_spacing_6dp"
+        android:letterSpacing="0.0625"
+        android:text="@string/label_infor"/>
+</androidx.core.widget.NestedScrollView>
+</LinearLayout>

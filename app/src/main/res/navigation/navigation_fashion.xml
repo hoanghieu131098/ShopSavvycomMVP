@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tab_fashion"
+    app:startDestination="@+id/tabFashion">
+    <fragment
+        android:id="@+id/tabFashion"
+        android:name="com.example.shopsavvycommvp.ui.main.fragments.fashionfragment.view.FashionFragment"
+        android:label="fragment_fashion"
+        tools:layout="@layout/fragment_fashion">
+
+    </fragment>
+
+</navigation>

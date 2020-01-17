@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="error_no_network_connection">The internet connection appears to be offline</string>
+    <string name="error_server_connection">Could not connect to server</string>
+    <string name="error_unauthorized">401 Unauthorized Error</string>
+    <string name="error_occurred">Unknown Error</string>
+    <string name="not_item">Not Product Hire</string>
+</resources>

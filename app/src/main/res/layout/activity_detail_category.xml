@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/White"
+    android:orientation="vertical"
+    tools:context=".ui.detailcategory.view.DetailCategoryActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_50dp"
+        android:background="@color/colorPrimary"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/margin_10dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_tb_back_detail_category"
+            android:layout_width="@dimen/padding_30dp"
+            android:layout_height="@dimen/padding_30dp"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/ic_back"
+            android:tint="@color/White" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_tb_title_product_detail_category"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_50dp"
+            android:layout_marginLeft="@dimen/margin_10dp"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:lines="1"
+            android:text="Phụ kiện điện thoạisssssssssssss"
+            android:textColor="@color/White"
+            android:textSize="@dimen/tv_size_username_22sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_10dp"
+                android:outlineAmbientShadowColor="@color/Red"
+                app:cardCornerRadius="@dimen/margin_5dp">
+
+                <com.smarteist.autoimageslider.SliderView
+                    android:id="@+id/imageSlider_detail_category"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_160dp"
+                    app:sliderAnimationDuration="600"
+                    app:sliderAutoCycleDirection="back_and_forth"
+                    app:sliderAutoCycleEnabled="true"
+                    app:sliderCircularHandlerEnabled="true"
+                    app:sliderIndicatorAnimationDuration="600"
+                    app:sliderIndicatorGravity="center_horizontal|bottom"
+                    app:sliderIndicatorMargin="15dp"
+                    app:sliderIndicatorOrientation="horizontal"
+                    app:sliderIndicatorPadding="3dp"
+                    app:sliderIndicatorRadius="2dp"
+                    app:sliderIndicatorSelectedColor="@color/colorAccent"
+                    app:sliderIndicatorUnselectedColor="@color/Gray"
+                    app:sliderScrollTimeInSec="1"
+                    app:sliderStartAutoCycle="true" />
+            </androidx.cardview.widget.CardView>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/margin_5dp"
+                android:layout_marginRight="@dimen/margin_5dp"
+                android:background="@color/Gray"
+                android:paddingTop="@dimen/margin_5dp">
+                <TextView
+                    android:id="@+id/tvEmptyProductDetailCategory"
+                    android:text="Hiện chưa có sản phẩm nào."
+                    android:textSize="@dimen/tv_size_20sp"
+                    android:layout_centerInParent="true"
+                    android:background="@color/White"
+                    android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycle_detail_category"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:scrollbars="vertical" />
+
+            </RelativeLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>
