@@ -81,7 +81,7 @@ class RatingFragment : BaseFragment(), RatingFragmentMVPView, checkClickReply {
             mIdComment = mPositioncomment?.let { it1 -> mdataComment!!.get(it1).id }
             Log.d("Comment", "" + mIdComment)
             if (mContentReply!!.isEmpty()) {
-                Toast.makeText(requireContext(), "Bạn chưa nhập nội dung!", Toast.LENGTH_SHORT)
+                Toast.makeText(requireContext(), "You did not enter content!", Toast.LENGTH_SHORT)
                     .show()
             } else {
                 presenter.getUpLoadreply(mUsername!!, mImage!!, mContentReply!!, mIdComment!!)
@@ -93,7 +93,7 @@ class RatingFragment : BaseFragment(), RatingFragmentMVPView, checkClickReply {
 
             Log.d("testPositionComment", "" + mReview)
             if (mContentComment.isNullOrEmpty()) {
-                Toast.makeText(requireContext(), "Bạn chưa nhập nội dung!", Toast.LENGTH_SHORT)
+                Toast.makeText(requireContext(), "You did not enter content!", Toast.LENGTH_SHORT)
                     .show()
             } else {
                 presenter.getUpLoadComment(

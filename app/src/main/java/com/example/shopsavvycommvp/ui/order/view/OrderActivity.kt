@@ -66,7 +66,7 @@ class OrderActivity : BaseActivity(), OrderMVPView {
             val phoneNumber = ed_phone_number.text.toString()
             val address = edt_diachi.text.toString()
             if (phoneNumber.isEmpty() || address.isEmpty()) {
-                ToastUtils.showToast(this, "Bạn phải nhập đầy đủ thông tin!")
+                ToastUtils.showToast(this, "You must enter full information!")
             } else {
                 morder!!.phoneNumber = phoneNumber
                 morder!!.address = address

@@ -3,6 +3,7 @@ package com.example.shopsavvycommvp.ui.main.fragments.cartfragment.view
 import android.content.Intent
 import android.os.Bundle
 import android.util.LayoutDirection
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -49,11 +50,18 @@ class CartFragment : BaseFragment(), CartFragmentMVPView, BaseAdapter.onClickLis
 
     private fun setonClickLisener() {
         ln_order_cart.setOnClickListener {
-            val intent: Intent = Intent(requireContext(),OrderActivity::class.java)
-            val order = Order(null,"","",0,totalMoney,false,mdata)
-            intent.putExtra(AppConstants.INTENT_DATA_TO_ORDER,order)
-            startActivity(intent)
-            requireActivity().finish()
+            if(!mdata.isNullOrEmpty()){
+                Log.d("a","ok")
+                val intent: Intent = Intent(requireContext(),OrderActivity::class.java)
+                val order = Order(null,"","",0,totalMoney,false,mdata)
+                intent.putExtra(AppConstants.INTENT_DATA_TO_ORDER,order)
+                startActivity(intent)
+                requireActivity().finish()
+            }else{
+                Log.d("a","not")
+                ToastUtils.showToast(activity!!, "You have no items in your shopping cart!")
+            }
+
         }
     }
 
