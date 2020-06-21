@@ -8,12 +8,14 @@ import com.example.shopsavvycommvp.data.network.response.Product
 import com.example.shopsavvycommvp.ui.base.presenter.BasePresenter
 import com.example.shopsavvycommvp.ui.main.fragments.homefragment.interactor.HomeFragmentMVPInteractor
 import com.example.shopsavvycommvp.ui.main.fragments.homefragment.view.HomeFragmentMVPView
+import com.example.shopsavvycommvp.util.AppConstants
 import com.example.shopsavvycommvp.util.SchedulerProvider
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import io.reactivex.disposables.CompositeDisposable
 import java.util.concurrent.TimeUnit
+import java.util.logging.Handler
 import javax.inject.Inject
 
 
@@ -30,22 +32,6 @@ class HomeFragmentPresenter @Inject internal constructor(
     override fun onAttach(view: HomeFragmentMVPView?) {
         super.onAttach(view)
         getToTalOrder()
-    }
-
-    override fun setSearchProduct(q: String) {
-        getView()?.showProgress()
-        interactor?.let {
-            compositeDisposable.add(
-                it.searchProduct(q)
-                    .compose(schedulerProvider.ioToMainObservableScheduler())
-                    .subscribe({ response ->
-                        getView()?.let {
-                            it.hideProgress()
-                            getView()?.onReponseSearchProductSuccess(response as ArrayList<Product>)
-                        }
-                    }, { error -> getView()?.handleThrowableError(error) })
-            )
-        }
     }
 
     override fun getToTalOrder() {
@@ -79,46 +65,48 @@ class HomeFragmentPresenter @Inject internal constructor(
 
     override fun getCategory() {
         getView()?.showProgress()
-        interactor?.let {
-            compositeDisposable.add(
-                it.getcategoryAll()
-                    .compose(schedulerProvider.ioToMainObservableScheduler())
-                    .subscribe({ response ->
-                        getView()?.let {
-                            if (getView() == null) return@subscribe
-                            it.hideProgress()
-                            if (response == null) {
-                                getView()?.getCategoryAllFailed("Error")
-                                return@subscribe
-                            }
-                            getView()?.getCategoryAllSuccess(response)
-                        }
-                    }, { error -> getView()?.handleThrowableError(error) })
-            )
-        }
+        interactor?.getFirebase()?.reference?.child(AppConstants.Category.CATEGORY)
+            ?.addValueEventListener(object : ValueEventListener {
+                override fun onCancelled(p0: DatabaseError) {
+                    getView()?.hideProgress()
+                    getView()?.getCategoryAllFailed(p0.message)
+                }
+
+                override fun onDataChange(p0: DataSnapshot) {
+                    getView()?.hideProgress()
+                    val listCategory = arrayListOf<Category>()
+                    for (i in p0.children) {
+                        val category = i.getValue(Category::class.java)
+                        category?.let { listCategory.add(it) }
+                    }
+                    getView()?.getCategoryAllSuccess(listCategory)
+                }
+            })
     }
 
-    override fun getKeyProductAll(key: String) {
-        getView()?.showProgress()
-        interactor?.let {
-            compositeDisposable.add(
-                it.getproductAll(key)
-                    .compose(schedulerProvider.ioToMainObservableScheduler())
-                    .subscribe({ response ->
-                        getView()?.let {
-                            if (getView() == null) return@subscribe
-                            it.hideProgress()
-                            //error
-                            if (response == null) {
-                                getView()?.getProductAllFailed("Error")
-                                return@subscribe
-                            }
-                            getView()?.getProductAllSuccess(response)
+
+    override fun getProductToRcv() {
+            getView()?.showProgress()
+            interactor?.getFirebase()?.reference?.child(AppConstants.Product.PRODUCT)
+                ?.addValueEventListener(object : ValueEventListener {
+                    override fun onCancelled(p0: DatabaseError) {
+                        getView()?.hideProgress()
+                        getView()?.getProductAllFailed(p0.message)
+                    }
+
+                    override fun onDataChange(p0: DataSnapshot) {
+                        getView()?.hideProgress()
+                        val list = arrayListOf<Product>()
+                        for (i in p0.children) {
+                            val product = i.getValue(Product::class.java)
+                            product?.let { list.add(it) }
                         }
-                    }, { error -> getView()?.handleThrowableError(error) })
-            )
-        }
+                        getView()?.getProductAllSuccess(list)
+                    }
+                })
 
     }
+
+
 
 }

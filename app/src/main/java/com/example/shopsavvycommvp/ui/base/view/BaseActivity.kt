@@ -1,10 +1,12 @@
 package com.example.shopsavvycommvp.ui.base.view
 
+import android.app.Activity
 import android.app.AlertDialog
 import android.content.Context
 import android.content.DialogInterface
 import android.os.Bundle
 import android.os.PersistableBundle
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.annotation.LayoutRes
 import androidx.annotation.StringRes
@@ -45,10 +47,23 @@ abstract class BaseActivity : AppCompatActivity(), MVPView {
         setUp()
     }
 
+    fun hideKeyboard() {
+        val view = this.currentFocus
+        if (view != null) {
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(view.windowToken, 0)
+        }
+    }
+
     private fun performDI() {
         AndroidInjection.inject(this)
     }
 
+    override fun showError(msg: String) {
+        runOnUiThread {
+            DialogUtils.getErrorMessageAlertDialog(this, msg).show()
+        }
+    }
     override fun showProgress() {
         if (progressDialog == null) {
             progressDialog = ProgressDialogUtils.instance

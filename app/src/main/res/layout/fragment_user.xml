@@ -31,7 +31,6 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="@dimen/margin_10dp"
-                    android:layout_marginBottom="@dimen/margin_20dp"
                     android:orientation="vertical">
 
                     <de.hdodenhof.circleimageview.CircleImageView
@@ -56,15 +55,15 @@
                             android:layout_height="wrap_content"
                             android:text="User Name"
                             android:textColor="@color/White"
-                            android:textSize="@dimen/tv_size_20sp" />
+                            android:textSize="@dimen/_12ssp" />
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/tv_useremail"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="hoanghieu@savvycom.com"
+                            android:text="hoanghieu@dssdssavvycom.com"
                             android:textColor="@color/White"
-                            android:textSize="@dimen/tv_size_16sp" />
+                            android:textSize="@dimen/_11ssp" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -141,7 +140,7 @@
                             android:textAllCaps="false"
                             android:layout_marginRight="2dp"
                             android:textColor="@color/Red"
-                            android:textSize="@dimen/tv_size_15sp" />
+                            android:textSize="@dimen/_12ssp" />
 
                         <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/btn_signin_profile"
@@ -349,14 +348,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:iconView="@drawable/ic_setup_account"
-                app:titleView="Thiết lập tài khoản" />
+                app:titleView="Đăng xuất" />
             <com.example.shopsavvycommvp.custom.ItemProfileUser
                 android:id="@+id/item_profile_help_center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:iconView="@drawable/ic_help"
                 app:titleView="Trung tâm trợ giúp" />
-
+            <com.example.shopsavvycommvp.custom.ItemProfileUser
+                android:id="@+id/item_profile_Admin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:iconView="@drawable/ic_admin"
+                android:visibility="gone"
+                app:titleView="Admin" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </RelativeLayout>

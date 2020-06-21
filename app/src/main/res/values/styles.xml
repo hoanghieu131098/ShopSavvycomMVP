@@ -25,11 +25,20 @@
         <item name="android:topDark">@android:color/transparent</item>
     </style>
 
+    <style name="StyleTitleFieldSmallTextSize">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/noto_sans_regular</item>
+        <item name="android:textSize">@dimen/small_text_size</item>
+        <item name="android:textColor">@color/event_secondary_text_color</item>
+        <item name="android:layout_marginTop">@dimen/_20sdp</item>
+        <item name="android:layout_marginStart">@dimen/_20sdp</item>
+    </style>
 
     <!--    style bg item user-->
     <style name="SettingAppCompatImageViewNextItemUserStyle">
-        <item name="android:layout_height">@dimen/padding_30dp</item>
-        <item name="android:layout_width">@dimen/padding_30dp</item>
+        <item name="android:layout_height">@dimen/_20sdp</item>
+        <item name="android:layout_width">@dimen/_20sdp</item>
         <item name="android:src">@drawable/ic_next</item>
         <item name="android:tint">@color/colorPrimary</item>
     </style>

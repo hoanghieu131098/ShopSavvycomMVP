@@ -1,41 +1,25 @@
 package com.example.shopsavvycommvp.ui.detailproduct.fragments.ratingfragment.view
 
-import android.os.Bundle
-import android.text.Editable
 import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.widget.ProgressBar
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.example.shopsavvycommvp.R
-
 import com.example.shopsavvycommvp.data.network.response.Comment
 import com.example.shopsavvycommvp.data.network.response.Product
-import com.example.shopsavvycommvp.data.network.response.Reply
 import com.example.shopsavvycommvp.ui.base.view.BaseFragment
 import com.example.shopsavvycommvp.ui.detailproduct.activities.view.DetailActivity
 import com.example.shopsavvycommvp.ui.detailproduct.fragments.ratingfragment.presenter.RatingFragmentPresenter
 import com.example.shopsavvycommvp.ui.detailproduct.fragments.ratingfragment.view.adapter.Comment_Reply_adapter
-import com.example.shopsavvycommvp.ui.detailproduct.fragments.ratingfragment.view.adapter.checkClickReply
-import com.example.shopsavvycommvp.util.AppConstants
-
-import com.github.ybq.android.spinkit.style.Circle
-import com.github.ybq.android.spinkit.style.ThreeBounce
+import com.example.shopsavvycommvp.util.extension.hideSoftKeyboard
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import kotlinx.android.synthetic.main.fragment_home.*
-import kotlinx.android.synthetic.main.fragment_infor.*
-import kotlinx.android.synthetic.main.fragment_rating.*
-import kotlinx.android.synthetic.main.item_rate_clothes.*
-import javax.inject.Inject
 import com.hsalf.smilerating.SmileRating
-import com.hsalf.smilerating.BaseRating
+import kotlinx.android.synthetic.main.fragment_rating.*
+import javax.inject.Inject
 
 
-class RatingFragment : BaseFragment(), RatingFragmentMVPView, checkClickReply {
+class RatingFragment : BaseFragment(), RatingFragmentMVPView, Comment_Reply_adapter.checkClickReply {
 
 
     override val layoutId: Int
@@ -44,65 +28,56 @@ class RatingFragment : BaseFragment(), RatingFragmentMVPView, checkClickReply {
     @Inject
     internal lateinit var presenter: RatingFragmentPresenter
     private lateinit var act: DetailActivity
-    private var mIdProduct: String? = null
-    private var adapterComment: Comment_Reply_adapter? = null
-    private var mdataComment: ArrayList<Comment>? = null
+    private var mProduct: Product? = null
+    private lateinit var adapterComment: Comment_Reply_adapter
+    private var mdataComment: ArrayList<Comment> = arrayListOf()
     private var mPositioncomment: Int? = null
-    private val TAG = "selectedSmily"
-
+    private var mUsername: String? = null
+    private var mImage: String? = null
+    private var mIdComment: Int? = null
+    private var mReview: Int = 0
     private lateinit var mAuth: FirebaseAuth
     private var mUser: FirebaseUser? = null
-
+    private val TAG = "selectedSmily"
 
     override fun setUp() {
         presenter.onAttach(this)
         //init user get from firebase
         mAuth = FirebaseAuth.getInstance()
         mUser = mAuth.currentUser
-        mUsername = mUser!!.displayName
-        mImage = mUser!!.photoUrl.toString()
-
+        mUsername = mUser?.displayName
+        mImage = mUser?.photoUrl.toString()
         getInforFromDetail()
         initView()
         setRecycle()
     }
 
-    private var mUsername: String? = null
-    private var mContentReply: String? = null
-    private var mContentComment: String? = null
-    private var mImage: String? = null
-    private var mIdComment: Int? = null
-    private var mReview: Int = 0
     private fun initView() {
         checkSmilyReview()
         img_send_reply.setOnClickListener {
-            Log.d("testPositionComment", "" + mPositioncomment)
-            mContentReply = ed_input_reply.text.toString()
-            mIdComment = mPositioncomment?.let { it1 -> mdataComment!!.get(it1).id }
-            Log.d("Comment", "" + mIdComment)
-            if (mContentReply!!.isEmpty()) {
-                Toast.makeText(requireContext(), "You did not enter content!", Toast.LENGTH_SHORT)
-                    .show()
+            if (ed_input_reply.text.toString().trim().isNotEmpty()) {
+                presenter.getUpLoadreply(mUsername ?: "", mImage ?: "", ed_input_reply.text.toString().trim(), mdataComment[mPositioncomment ?: 0].id,
+                    mdataComment[mPositioncomment ?: 0].reply?.size ?: 0, mProduct?.id ?: 0
+                )
             } else {
-                presenter.getUpLoadreply(mUsername!!, mImage!!, mContentReply!!, mIdComment!!)
+                Toast.makeText(requireContext(), getString(R.string.not_enter_content), Toast.LENGTH_SHORT).show()
             }
         }
         btn_sendreview.setOnClickListener {
+            if (ed_contentreview.text.toString().trim().isNotEmpty()) {
+                    mProduct?.id?.let {
+                        presenter.getUpLoadComment(
+                            mUsername ?: "",
+                            mImage ?: "",
+                            ed_contentreview.text.toString().trim(),
+                            mReview,
+                            it,
+                            mdataComment.size ?: 0
+                        )
 
-            mContentComment = ed_contentreview.text.toString()
-
-            Log.d("testPositionComment", "" + mReview)
-            if (mContentComment.isNullOrEmpty()) {
-                Toast.makeText(requireContext(), "You did not enter content!", Toast.LENGTH_SHORT)
-                    .show()
+                }
             } else {
-                presenter.getUpLoadComment(
-                    mUsername!!,
-                    mImage!!,
-                    mContentComment!!,
-                    mReview,
-                    mIdProduct!!.toInt()
-                )
+                this.showError(getString(R.string.you_did_not_enter_content))
             }
         }
     }
@@ -111,28 +86,26 @@ class RatingFragment : BaseFragment(), RatingFragmentMVPView, checkClickReply {
         adapterComment = Comment_Reply_adapter(requireContext())
         recycle_Rate.setHasFixedSize(true)
         recycle_Rate.adapter = adapterComment
-        adapterComment?.setListenerstatusClickReply(this)
+        adapterComment.setListenerstatusClickReply(this)
     }
 
-    override fun PositionComment(position: Int) {
+    override fun positionComment(position: Int) {
         mPositioncomment = position
-        Log.d("testPositionComment", "" + mPositioncomment)
         relative_input_reply.visibility = View.VISIBLE
-        tv_username_reply.text = mPositioncomment?.let { it1 -> mdataComment?.get(it1)?.username }
+        tv_username_reply.text = mPositioncomment?.let { it1 -> mdataComment.get(it1).username }
     }
 
     override fun checkstatus(status: Boolean) {
-
     }
 
     override fun getCommentFailed(msg: String) {
-
+        this.showError(msg)
     }
 
-    override fun getCommentSuccess(msg: List<Comment>) {
-        mdataComment = ArrayList()
-        mdataComment?.addAll(msg as ArrayList<Comment>)
-        adapterComment?.setData(msg as ArrayList<Comment>)
+    override fun getCommentSuccess(msg: ArrayList<Comment>) {
+            mdataComment.clear()
+            mdataComment.addAll(msg)
+            adapterComment.setData(msg)
     }
 
     override fun onDestroy() {
@@ -142,11 +115,10 @@ class RatingFragment : BaseFragment(), RatingFragmentMVPView, checkClickReply {
 
     private fun getInforFromDetail() {
         act = activity as DetailActivity
-        act.getIdProduct().observe(act, object : Observer<String?> {
-            override fun onChanged(t: String?) {
-                mIdProduct = t
-                presenter.getIdProduct(mIdProduct.toString())
-                Log.d("testProduct", "" + mIdProduct.toString())
+        act.getDescription().observe(act, object : Observer<Product?> {
+            override fun onChanged(t: Product?) {
+                mProduct = t
+                t?.id?.let { presenter.getCommentFollowProduct(it) }
             }
         })
     }
@@ -181,51 +153,25 @@ class RatingFragment : BaseFragment(), RatingFragmentMVPView, checkClickReply {
 
     }
 
-    override fun uploadReplyFailed(msg: String) {
-        Toast.makeText(requireContext(), "Reply " + msg, Toast.LENGTH_SHORT).show()
+    override fun uploadReplyFailed() {
+        Toast.makeText(requireContext(), getString(R.string.reply_upload_error) , Toast.LENGTH_SHORT).show()
     }
 
-    override fun uploadReplySuccess(msg: String) {
-        Toast.makeText(requireContext(), "Reply " + msg, Toast.LENGTH_SHORT).show()
-
-        mdataComment!!.get(mPositioncomment!!)
-            .reply?.add(
-            Reply(
-                mdataComment!!.get(mPositioncomment!!).reply!!.size,
-                mUsername!!,
-                mImage!!,
-                mContentReply!!,
-                mIdComment!!
-            )
-        )
-
-        adapterComment!!.setData(mdataComment!!)
+    override fun uploadReplySuccess() {
+        Toast.makeText(requireContext(), getString(R.string.reply_upload_success), Toast.LENGTH_SHORT).show()
         relative_input_reply.visibility = View.INVISIBLE
-        ed_input_reply.text = null
+        ed_input_reply.setText("")
     }
 
-    override fun uploadCommentFailed(msg: String) {
-        Toast.makeText(requireContext(), "Comment " + msg, Toast.LENGTH_SHORT).show()
+    override fun uploadCommentFailed() {
+        Toast.makeText(requireContext(), getString(R.string.comment_upload_error), Toast.LENGTH_SHORT).show()
     }
 
-    override fun uploadCommentSuccess(msg: String) {
-        Toast.makeText(requireContext(), "Comment " + msg, Toast.LENGTH_SHORT).show()
-
-        val arrReply: ArrayList<Reply> = arrayListOf()
-        mdataComment!!.add(
-            Comment(
-                mdataComment!!.size,
-                mUsername!!,
-                mImage!!,
-                mContentComment!!,
-                mReview,
-                mIdProduct!!.toInt(),
-                arrReply
-            )
-        )
-        adapterComment!!.setData(mdataComment!!)
-        ed_contentreview.text = null
-
+    override fun uploadCommentSuccess() {
+        Toast.makeText(requireContext(), getString(R.string.comment_upload_success), Toast.LENGTH_SHORT).show()
+        ed_contentreview.setText("")
+        requireActivity().hideSoftKeyboard()
+        recycle_Rate.scrollToPosition(mdataComment.size - 1)
     }
 
 }

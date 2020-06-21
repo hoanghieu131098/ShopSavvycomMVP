@@ -11,6 +11,7 @@ import androidx.lifecycle.LiveData
 import androidx.navigation.NavController
 import com.example.shopsavvycommvp.R
 import com.example.shopsavvycommvp.data.network.ErrorHandler
+import com.example.shopsavvycommvp.util.DialogUtils
 import com.example.shopsavvycommvp.widget.NavData
 import dagger.android.support.AndroidSupportInjection
 
@@ -39,6 +40,16 @@ abstract class BaseFragment : Fragment(), MVPView {
 
     override fun onPause() {
         super.onPause()
+    }
+
+    override fun showError(msg: String) {
+        baseActivity?.runOnUiThread {
+            if (msg.isNullOrEmpty()) {
+                DialogUtils.getErrorMessageAlertDialog(baseActivity!!, getString(R.string.error_server_connection)).show()
+            } else {
+                DialogUtils.getErrorMessageAlertDialog(baseActivity!!, msg).show()
+            }
+        }
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

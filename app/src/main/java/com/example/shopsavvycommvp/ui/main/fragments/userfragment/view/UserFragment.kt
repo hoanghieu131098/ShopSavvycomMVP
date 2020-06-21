@@ -8,12 +8,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.shopsavvycommvp.R
+import com.example.shopsavvycommvp.ui.admin.view.AdminActivity
 import com.example.shopsavvycommvp.ui.base.view.BaseFragment
 import com.example.shopsavvycommvp.ui.login.view.LoginActivity
 import com.example.shopsavvycommvp.ui.main.activities.view.MainActivity
 import com.example.shopsavvycommvp.ui.main.fragments.userfragment.presenter.UserFragmentPresenter
 import com.example.shopsavvycommvp.ui.notiorder.activities.view.NotiOrderActivity
+import com.example.shopsavvycommvp.util.AppConstants
 import com.example.shopsavvycommvp.util.extension.loadImg
+import com.example.shopsavvycommvp.util.extension.visible
 import com.example.shopsavvycommvp.widget.click
 
 import com.facebook.login.LoginManager
@@ -23,8 +26,7 @@ import com.smarteist.autoimageslider.IndicatorView.draw.controller.DrawControlle
 import kotlinx.android.synthetic.main.fragment_user.*
 import javax.inject.Inject
 
-
-class UserFragment : BaseFragment(),UserFragmentMVPView {
+class UserFragment : BaseFragment(), UserFragmentMVPView {
 
     override val layoutId: Int
         get() = R.layout.fragment_user
@@ -32,7 +34,7 @@ class UserFragment : BaseFragment(),UserFragmentMVPView {
     @Inject
     lateinit var presenter: UserFragmentPresenter
     private lateinit var mAuth: FirebaseAuth
-    private  var mUser: FirebaseUser?=null
+    private var mUser: FirebaseUser? = null
 
     override fun setUp() {
         presenter.onAttach(this)
@@ -45,7 +47,7 @@ class UserFragment : BaseFragment(),UserFragmentMVPView {
     }
 
     private fun setonClickLisener() {
-        item_profile_setup_account.setOnClickListener{
+        item_profile_setup_account.setOnClickListener {
             mAuth.signOut()
             LoginManager.getInstance().logOut()
             openLoginActivity()
@@ -56,34 +58,39 @@ class UserFragment : BaseFragment(),UserFragmentMVPView {
         }
 
         //Don mua
-        item_profile_purchar_order.setOnClickListener{
-            startActivity(Intent(requireContext(),NotiOrderActivity::class.java))
+        item_profile_purchar_order.setOnClickListener {
+            startActivity(Intent(requireContext(), NotiOrderActivity::class.java))
         }
-        item_profile_card_service.setOnClickListener {  }
-        item_profile_favorited.setOnClickListener {  }
-        item_profile_new_see.setOnClickListener {  }
-        item_profile_wallet_shop.setOnClickListener {  }
-        item_profile_xu_shop.setOnClickListener {  }
-        item_profile_evaluate.setOnClickListener {  }
-        item_profile_wallet_voucher.setOnClickListener {  }
+        item_profile_card_service.setOnClickListener { }
+        item_profile_favorited.setOnClickListener { }
+        item_profile_new_see.setOnClickListener { }
+        item_profile_wallet_shop.setOnClickListener { }
+        item_profile_xu_shop.setOnClickListener { }
+        item_profile_evaluate.setOnClickListener { }
+        item_profile_wallet_voucher.setOnClickListener { }
         item_profile_help_center.click().subscribe {
             navController?.navigate(R.id.toHelpCentreFragment, null)
         }
-
+        item_profile_Admin.setOnClickListener {
+            startActivity(Intent(requireContext(), AdminActivity::class.java))
+        }
     }
-     private fun updateHeader(user: FirebaseUser) {
-         profile_img_nguoidung.loadImg(user.photoUrl.toString())
+
+    private fun updateHeader(user: FirebaseUser) {
+        profile_img_nguoidung.loadImg(user.photoUrl.toString())
         tv_username.text = user.displayName
-        if(user.email!=null){
+        if (user.email != null) {
             tv_useremail.text = user.email
         }
+        item_profile_Admin.visible(user.email == AppConstants.EMAIL_ADMIN)
     }
 
     override fun onDestroy() {
         presenter.onDetach()
         super.onDestroy()
     }
-    private fun openLoginActivity(){
+
+    private fun openLoginActivity() {
         startActivity(Intent(requireContext(), LoginActivity::class.java))
         requireActivity().finish()
     }
@@ -91,7 +98,7 @@ class UserFragment : BaseFragment(),UserFragmentMVPView {
     private fun checkHideShowView() {
 
     }
-    
+
     override fun numberItemCart(number: Int?) {
         if (number == 0) {
             tv_Item_Count_Cart_User.visibility = View.INVISIBLE

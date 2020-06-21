@@ -48,7 +48,7 @@ class LoginActivity : BaseActivity(), LoginMVPView {
     }
 
     private fun setonClickLisener() {
-
+        btn_Login_GG.setOnClickListener { login() }
     }
 
     override fun onDestroy() {
@@ -117,10 +117,10 @@ class LoginActivity : BaseActivity(), LoginMVPView {
             .requestEmail()
             .build()
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso)
-        btn_Login_GG.setOnClickListener { login() }
     }
 
     private fun login() {
+        mGoogleSignInClient.signOut()
         val sigInIntent = mGoogleSignInClient.signInIntent
         startActivityForResult(sigInIntent, RC_SIGN_IN)
     }

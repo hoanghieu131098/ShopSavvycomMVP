@@ -45,6 +45,7 @@ class DetailCategoryActivity: BaseActivity(),DetailCategoryMVPView ,BaseAdapter.
         receivedatafromHome()
         setSlider(mCategory)
         addDataView()
+
         //set event recycleview product all
         adapter = BaseAdapter(this, R.layout.item_clothes_home)
         recycle_detail_category.setHasFixedSize(true)
@@ -53,7 +54,7 @@ class DetailCategoryActivity: BaseActivity(),DetailCategoryMVPView ,BaseAdapter.
         recycle_detail_category.adapter = adapter
         adapter.setBaseClickListener(this@DetailCategoryActivity)
 
-        presenter.getKeyProductAll(mCategory!!.id.toString())
+        mCategory?.id?.let { presenter.getProductFollowCategory(it) }
 
         //event click back
         img_tb_back_detail_category.setOnClickListener {
@@ -68,7 +69,7 @@ class DetailCategoryActivity: BaseActivity(),DetailCategoryMVPView ,BaseAdapter.
     private fun setSlider(mCategory: Category?) {
         var mslideradapter = SliderAdapter(this)
         val data: ArrayList<String> = arrayListOf()
-        data.add(mCategory!!.image)
+        mCategory?.image?.let { data.add(it) }
         data.add("http://images.complex.com/complex/image/upload/c_fill,g_center,w_1200/fl_lossy,q_70/nacqv6y9ixfynv9zskuu.gif")
         mslideradapter.setData(data)
         imageSlider_detail_category.sliderAdapter = mslideradapter
@@ -84,15 +85,13 @@ class DetailCategoryActivity: BaseActivity(),DetailCategoryMVPView ,BaseAdapter.
     }
 
     override fun getProductAllFailed(msg: String) {
-//        showAlert(msg)
+        this.showError(msg)
     }
 
     override fun getProductAllSuccess(data: List<Product>) {
         if(data.isEmpty()){
             tvEmptyProductDetailCategory.visibility = View.VISIBLE
-            Log.d("Text","Empty")
         }else{
-            Log.d("Text"," not Empty")
             adapter.setData(data as ArrayList<Product>)
         }
     }

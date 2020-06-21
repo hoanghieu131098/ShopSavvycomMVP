@@ -37,7 +37,7 @@
                     android:layout_marginTop="10dp"
                     android:text="Hoàng Hiếu"
                     android:textColor="#ffffff"
-                    android:textSize="19.2sp" />
+                    android:textSize="@dimen/_15ssp" />
             </LinearLayout>
             <TextView
                 android:id="@+id/tvDs"
@@ -47,7 +47,7 @@
                 android:layout_marginTop="10dp"
                 android:text="@string/lb_list_product"
                 android:textColor="#ffffff"
-                android:textSize="@dimen/tv_18sp" />
+                android:textSize="@dimen/_13ssp" />
             <TextView
                 android:id="@+id/tv_list_Product"
                 android:layout_width="wrap_content"
@@ -66,7 +66,7 @@
                 android:text="ToTal: $44"
                 android:textStyle="bold"
                 android:textColor="#FFFFFF"
-                android:textSize="@dimen/tv_18sp" />
+                android:textSize="@dimen/_13ssp" />
 
 
             <LinearLayout
@@ -78,8 +78,14 @@
                 android:orientation="vertical"
                 android:paddingTop="15dp"
                 android:paddingBottom="15dp">
-
-
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Phone Number :"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:fontFamily="@font/noto_sans_regular"
+                    android:textColor="@color/White"
+                    android:textSize="@dimen/_13ssp"/>
                 <EditText
                     android:id="@+id/ed_phone_number"
                     style="@style/MyEditTextStyle2"
@@ -90,18 +96,27 @@
                     android:inputType="phone"
                     android:textColor="@color/White"
                     android:textColorHint="@color/White"
-                    android:textSize="18sp" />
+                    android:textSize="@dimen/_13ssp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Address :"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:fontFamily="@font/noto_sans_regular"
+                    android:textColor="@color/White"
+                    android:textSize="@dimen/_13ssp"/>
 
                 <EditText
                     android:id="@+id/edt_diachi"
                     style="@style/MyEditTextStyle2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
                     android:hint="Input Address..."
                     android:textColor="@color/White"
                     android:textColorHint="@color/White"
-                    android:textSize="18sp" />
+                    android:textSize="@dimen/_13ssp" />
 
             </LinearLayout>
 

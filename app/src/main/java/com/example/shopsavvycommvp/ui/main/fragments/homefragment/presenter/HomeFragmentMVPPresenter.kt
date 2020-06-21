@@ -7,10 +7,7 @@ import com.example.shopsavvycommvp.ui.main.fragments.homefragment.interactor.Hom
 import com.example.shopsavvycommvp.ui.main.fragments.homefragment.view.HomeFragmentMVPView
 
 interface HomeFragmentMVPPresenter: MVPPresenter<HomeFragmentMVPView, HomeFragmentMVPInteractor> {
-    fun getKeyProductAll(key: String)
+    fun getProductToRcv()
     fun getCategory()
-
     fun getToTalOrder()
-
-    fun setSearchProduct(q: String)
 }

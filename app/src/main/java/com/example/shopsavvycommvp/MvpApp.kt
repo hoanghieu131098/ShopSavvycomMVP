@@ -30,6 +30,7 @@ class MvpApp : Application(), HasActivityInjector {
             .build()
             .inject(this)
     }
+
     fun isValidContinueClick(v: View?, disable: Boolean = true): Boolean {
         //To prevent multiple clicks at time
         if (SystemClock.elapsedRealtime() - mLastClickTimeListViewItem < DELAY_TIME_ITEM_CONTINUE_CLICKED) {

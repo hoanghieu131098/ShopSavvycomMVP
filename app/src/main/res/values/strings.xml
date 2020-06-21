@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">ShopSavvycomMVP</string>
+    <string name="title_show_dialog">Shop Tu Reus</string>
     <string name="ok">OK</string>
 
     <string name="double_tap_to_exit">Double tap to exit!</string>
@@ -57,5 +58,28 @@
     <string name="tv_lb_detailorder_saler">Thanh toán cho người bán</string>
     <string name="tv_lb_detailorder_visit">Ghé thăm Shop</string>
     <string name="tv_lb_itemdetailorder_soluong">Số lượng :</string>
+    <string name="not_enter_content">You did not enter content!</string>
+    <string name="upload_reply_sucess">Upload reply success!</string>
+    <string name="reply_upload_error">Reply upload error</string>
+    <string name="reply_upload_success">Reply upload success</string>
+    <string name="comment_upload_error">Comment upload error</string>
+    <string name="comment_upload_success">Comment upload success</string>
+    <string name="you_did_not_enter_content">You did not enter content!</string>
+    <string name="admin">Admin</string>
+
+    <string name="ed_lable_name_product">Nhập tên sản phẩm</string>
+    <string name="ed_lable_date_create">Nhập thông tin miêu tả sản phẩm</string>
+    <string name="tv_lable_choose_image">Chọn ảnh</string>
+    <string name="edt_lable_category">Thể loại</string>
+    <string name="edt_lable_price_product">Nhập giá sản phẩm</string>
+    <string name="tv_lable_save">SAVE</string>
+    <string name="lable_cap_nhat_san_pham">Cập nhật sản phẩm</string>
+    <string name="lable_them_san_pham">Thêm sản phẩm</string>
+    <string name="select_picture">Select Picture</string>
+    <string name="no_result">No Result</string>
+    <string name="profile_enter_search_keyword">Enter keywords</string>
+    <string name="delete_product">Delete Product</string>
+    <string name="edit_product">Edit product</string>
+    <string name="delete_success">Deleted Success!</string>
 
 </resources>

@@ -3,8 +3,6 @@ package com.example.shopsavvycommvp.data.network.response
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
-data class Category(
-    @SerializedName("Id") val id:
-    Int, @SerializedName("Name") val name:
-    String, @SerializedName("Image") val image: String
-) : Serializable,BaseModel()
+data class Category(val id: Int, var name: String, var image: String) : Serializable,BaseModel(){
+    constructor(): this(0,"","")
+}
