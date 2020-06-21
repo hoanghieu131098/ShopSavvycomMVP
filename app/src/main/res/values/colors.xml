@@ -12,6 +12,8 @@
 
     <color name="Gray">#ddf2eded</color>
 
+    <color name="pink_light">#FC73A7</color>
+    <color name="pink_Dark">#FF0266</color>
     <color name="Black">#000000</color>
     <color name="Black_tv_name_cart">#A4000000</color>
     <color name="DarkGray">#dd9a9393</color>
@@ -25,5 +27,10 @@
     <color name="bg_login_fb">#0025FF</color>
     <color name="corlor_tv_black">#424242</color>
     <color name="corlortextĐetailOrder">#CE000000</color>
-    <color name="corlortextDetailOrderStatus">#00FF0C</color>1
+    <color name="corlortextDetailOrderStatus">#00FF0C</color>
+    <color name="warmGrey">#808080</color>
+
+    <color name="gray_datelove">#60000000</color>
+    <color name="event_secondary_text_color">#565A5C</color>
+    <color name="red_dark">#DE356B</color>
 </resources>

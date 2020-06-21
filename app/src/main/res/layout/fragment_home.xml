@@ -14,7 +14,6 @@
         android:layout_height="50dp"
         android:layout_alignParentTop="true"
         android:orientation="vertical">
-
             <include layout="@layout/toolbar_home" />
         </LinearLayout>
 
@@ -23,16 +22,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/ln_tb_home">
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
 
             <LinearLayout
                 android:id="@+id/ln"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="vertical">
-
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -66,6 +61,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/margin_10dp"
                     android:layout_marginTop="@dimen/margin_5dp"
+                    android:background="@color/White"
                     android:orientation="vertical">
 
                     <androidx.recyclerview.widget.RecyclerView
@@ -103,28 +99,35 @@
                         android:text="View All"
                         android:textColor="@color/colorPrimary"
                         android:textSize="@dimen/tv_size_15sp" />
-
                 </LinearLayout>
+
                 <RelativeLayout
-                    android:background="@color/Gray"
+                    android:background="#EAEAEA"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_marginLeft="@dimen/margin_5dp"
+                    android:visibility="visible"
                     android:layout_marginRight="@dimen/margin_5dp"
                     android:layout_marginTop="@dimen/margin_10dp">
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/recycal_list_item_fm_home"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:scrollbars="vertical"
-                        android:clipToPadding="false" />
-
+                        android:layout_height="match_parent" />
                 </RelativeLayout>
 
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvNoResult"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_60sdp"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/no_result"
+                    android:textColor="@color/Black"
+                    android:visibility="gone"
+                    android:textSize="@dimen/_13sdp"
+                    android:fontFamily="@font/noto_sans_regular"/>
 
             </LinearLayout>
-        </RelativeLayout>
-
 
     </androidx.core.widget.NestedScrollView>
 

@@ -36,5 +36,6 @@
     <dimen name="tv_18sp">18sp</dimen>
     <dimen name="margin_7dp">7.5dp</dimen>
 
-
+    <dimen name="small_text_size">@dimen/_10ssp</dimen>
+    <dimen name="normal_text_size">@dimen/_12ssp</dimen>
 </resources>

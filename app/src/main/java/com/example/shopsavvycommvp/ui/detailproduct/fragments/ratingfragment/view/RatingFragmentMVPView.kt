@@ -5,13 +5,13 @@ import com.example.shopsavvycommvp.ui.base.view.MVPView
 
 interface RatingFragmentMVPView : MVPView{
     fun getCommentFailed(msg: String)
-    fun getCommentSuccess(msg: List<Comment>)
+    fun getCommentSuccess(msg: ArrayList<Comment>)
 
-    fun uploadReplyFailed(msg: String)
-    fun uploadReplySuccess(msg: String)
+    fun uploadReplyFailed()
+    fun uploadReplySuccess()
 
-    fun uploadCommentFailed(msg: String)
-    fun uploadCommentSuccess(msg: String)
+    fun uploadCommentFailed()
+    fun uploadCommentSuccess()
 
 
 }

@@ -31,8 +31,8 @@ class DetailOrderPresenter<V : DetailOrderMVPView, I : DetailOrderMVPInteractor>
                     override fun onDataChange(data: DataSnapshot) {
                         for (i in data.children) {
                             val order = i.getValue(Order::class.java)
-                            if (order!!.id.equals(id)) {
-                                getView()?.onReponseDetailOrder(order)
+                            if (order?.id.equals(id)) {
+                                order?.let { getView()?.onReponseDetailOrder(it) }
                                 break
                             }
                         }

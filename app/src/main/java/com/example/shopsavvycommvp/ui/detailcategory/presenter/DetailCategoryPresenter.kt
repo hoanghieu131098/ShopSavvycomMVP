@@ -4,7 +4,11 @@ import com.example.shopsavvycommvp.data.network.response.Product
 import com.example.shopsavvycommvp.ui.base.presenter.BasePresenter
 import com.example.shopsavvycommvp.ui.detailcategory.interactor.DetailCategoryMVPInteractor
 import com.example.shopsavvycommvp.ui.detailcategory.view.DetailCategoryMVPView
+import com.example.shopsavvycommvp.util.AppConstants
 import com.example.shopsavvycommvp.util.SchedulerProvider
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
 import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
 
@@ -16,28 +20,27 @@ class DetailCategoryPresenter<V : DetailCategoryMVPView, I : DetailCategoryMVPIn
     BasePresenter<V, I>(interactor, schedulerProvider, disposable),
     DetailCategoryMVPPresenter<V, I> {
     lateinit var data: List<Product>
-    override fun getKeyProductAll(key: String) {
+    override fun getProductFollowCategory(key: Int) {
         getView()?.showProgress()
-        interactor?.let {
-            compositeDisposable.add(it.getproductAll(key)
-                .compose(schedulerProvider.ioToMainObservableScheduler())
-                .subscribe({ response ->
-                    getView()?.let {
-                        if (getView() == null) return@subscribe
-                        it.hideProgress()
-                        if (response == null) {
-                            getView()?.getProductAllFailed(com.example.shopsavvycommvp.R.string.not_item.toString())
-                            return@subscribe
+        interactor?.getFirebase()?.reference?.child(AppConstants.Product.PRODUCT)
+            ?.addValueEventListener(object : ValueEventListener {
+                override fun onCancelled(p0: DatabaseError) {
+                    getView()?.hideProgress()
+                    getView()?.getProductAllFailed(p0.message)
+                }
+
+                override fun onDataChange(p0: DataSnapshot) {
+                    getView()?.hideProgress()
+                    val listProduct = arrayListOf<Product>()
+                    for (i in p0.children) {
+                        val product = i.getValue(Product::class.java)
+                        if (product?.idCategory == key) {
+                            product.let { listProduct.add(it) }
                         }
-                        getView()?.getProductAllSuccess(response)
                     }
-                }, { error ->
-                    getView()?.handleThrowableError(error)
-                    data = arrayListOf()
-                    getView()?.getProductAllSuccess(data)
-                })
-            )
-        }
+                    getView()?.getProductAllSuccess(listProduct)
+                }
+            })
     }
 
 }

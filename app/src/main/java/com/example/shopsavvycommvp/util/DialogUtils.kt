@@ -3,9 +3,18 @@ package com.example.shopsavvycommvp.util
 import android.app.AlertDialog
 import android.content.Context
 import android.content.DialogInterface
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.text.Html
 import android.text.TextUtils
+import android.view.LayoutInflater
+import android.view.Window
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 import com.example.shopsavvycommvp.R
+import com.example.shopsavvycommvp.data.network.response.Category
+import com.example.shopsavvycommvp.ui.admindetail.view.ListCategoryDialogAdapter
 
 object DialogUtils {
     val FLAG_RESOURCE_NULL: String? = null
@@ -169,7 +178,7 @@ object DialogUtils {
     }
 
     fun getErrorMessageAlertDialog(pContext: Context, mess: String): AlertDialog {
-        return getAlertDialog(pContext, pContext.getString(R.string.label_error), mess, pContext.getString(R.string.ok), FLAG_RESOURCE_NULL, FLAG_RESOURCE_NULL, SimpleDialogDismissListener())
+        return getAlertDialog(pContext, pContext.getString(R.string.title_show_dialog), mess, pContext.getString(R.string.ok), FLAG_RESOURCE_NULL, FLAG_RESOURCE_NULL, SimpleDialogDismissListener())
     }
 
 
@@ -189,5 +198,32 @@ object DialogUtils {
         override fun onClickDialog(pAlertDialog: DialogInterface, pDialogType: Int) {
             pAlertDialog.dismiss()
         }
+    }
+
+    fun showCategoryAlertDialog(context: Context, listCategory: ArrayList<Category>, callBack: ChooseCategory): AlertDialog {
+        val alertDialogBuilder = AlertDialog.Builder(context)
+
+        val inflater = LayoutInflater.from(context)
+        val dialogView = inflater.inflate(R.layout.item_dialog_list_category, null)
+        val rcvCategoryDialog = dialogView.findViewById(R.id.rcvCategoryDialog) as RecyclerView
+        alertDialogBuilder.setView(dialogView)
+
+        val adapter = ListCategoryDialogAdapter(listCategory)
+        rcvCategoryDialog.setHasFixedSize(true)
+        rcvCategoryDialog.adapter = adapter
+
+        val alertDialog = alertDialogBuilder.create()
+        alertDialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        alertDialog.setCanceledOnTouchOutside(true)
+        alertDialog.setCancelable(true)
+        adapter.setOnItemCategoryChoose {
+            callBack.chooseCategoryListener(it)
+            alertDialog.dismiss()
+        }
+        return alertDialog
+    }
+
+    interface ChooseCategory {
+        fun chooseCategoryListener(category: Category)
     }
 }

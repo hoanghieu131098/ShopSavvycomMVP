@@ -14,25 +14,11 @@ import javax.inject.Inject
 
 
 class HomeFragmentInteractor @Inject constructor(apiHelper: AppApi) : BaseInteractor(apiHelper),HomeFragmentMVPInteractor {
-    override fun searchProduct(q: String?): Observable<List<Product>> {
-        return appApi.searchProduct(q)
-    }
-
     override fun getFirebase(): FirebaseDatabase {
         return FirebaseDatabase.getInstance()
     }
 
     override fun getAccount(): FirebaseAuth {
-       return FirebaseAuth.getInstance()
+        return FirebaseAuth.getInstance()
     }
-
-    override fun getproductAll(key: String): Observable<List<Product>> {
-        return appApi.getProduct(key)
-    }
-
-    override fun getcategoryAll(): Observable<List<Category>> {
-        Log.d("testCate", "interactor")
-        return appApi.getCategory()
-    }
-
 }

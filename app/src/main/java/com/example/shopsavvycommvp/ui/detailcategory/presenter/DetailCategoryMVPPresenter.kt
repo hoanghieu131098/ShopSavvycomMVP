@@ -7,5 +7,5 @@ import com.example.shopsavvycommvp.ui.detailproduct.activities.view.DetailProduc
 
 
 interface DetailCategoryMVPPresenter<V: DetailCategoryMVPView,I: DetailCategoryMVPInteractor>: MVPPresenter<V,I>{
-    fun getKeyProductAll(key: String)
+    fun getProductFollowCategory(key: Int)
 }

@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tool="http://schemas.android.com/tools"
     android:layout_marginTop="@dimen/with_h_2dp"
     android:orientation="horizontal"
     android:background="@color/Gray"
@@ -11,7 +12,7 @@
         android:id="@+id/imgItemDetailOrder"
         android:layout_width="@dimen/width_height_75dp_avatar_profile_user"
         android:layout_height="@dimen/width_height_75dp_avatar_profile_user"
-        android:src="@mipmap/ic_launcher_round" />
+        tool:src="@mipmap/ic_launcher_round" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -24,7 +25,8 @@
             android:ellipsize="end"
             android:lines="1"
             android:layout_marginStart="@dimen/padding_15dp"
-            android:text="@string/tv_payment_method_detailorder"
+            android:fontFamily="@font/noto_sans_regular"
+            tool:text="@string/tv_payment_method_detailorder"
             android:textSize="@dimen/tv_size_16sp" />
         <LinearLayout
             android:layout_width="match_parent"
@@ -34,17 +36,10 @@
             android:layout_marginTop="@dimen/margin_10dp"
             >
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/tv_lb_itemdetailorder_soluong"
-                android:textSize="@dimen/tv_size_15sp" />
-            <TextView
                 android:id="@+id/tvItemDetailOrderSoLuong"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="10"
-                android:textColor="@color/Black_Gray"
-                android:layout_marginLeft="@dimen/padding_15dp"
                 android:textSize="@dimen/tv_size_15sp" />
         </LinearLayout>
         <TextView

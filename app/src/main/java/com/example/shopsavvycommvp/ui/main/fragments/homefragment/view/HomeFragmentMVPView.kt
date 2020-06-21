@@ -7,15 +7,12 @@ import com.example.shopsavvycommvp.ui.base.view.MVPView
 
 interface HomeFragmentMVPView : MVPView{
     fun getProductAllFailed(msg: String)
-    fun getProductAllSuccess(data : List<Product>)
+    fun getProductAllSuccess(data : ArrayList<Product>)
 
     fun getCategoryAllFailed(msg: String)
     fun getCategoryAllSuccess(data : List<Category>)
 
     fun onReponseTaTolOrderFailed(msg: String)
     fun onReponseTaTolOrderSuccess(total: Int)
-
-    fun onReponseSearchProductFailed(msg: String)
-    fun onReponseSearchProductSuccess(data: ArrayList<Product>?)
 
 }

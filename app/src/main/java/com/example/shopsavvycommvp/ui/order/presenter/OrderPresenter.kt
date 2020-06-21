@@ -7,7 +7,10 @@ import com.example.shopsavvycommvp.ui.order.interactor.OrderInteractor
 import com.example.shopsavvycommvp.ui.order.interactor.OrderMVPInteractor
 import com.example.shopsavvycommvp.ui.order.view.OrderMVPView
 import com.example.shopsavvycommvp.util.SchedulerProvider
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.ValueEventListener
 import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
 
@@ -29,9 +32,7 @@ class OrderPresenter<V : OrderMVPView, I : OrderMVPInteractor> @Inject internal 
 
             val keyId: String? = mDatarerence?.key
             order.id = keyId
-            mDatarerence?.
-                setValue(order)?.
-                addOnCompleteListener {
+            mDatarerence?.setValue(order)?.addOnCompleteListener {
                 getView()?.hideProgress()
                 if (it.isSuccessful) {
                     interactor.getFirebase()
@@ -41,9 +42,9 @@ class OrderPresenter<V : OrderMVPView, I : OrderMVPInteractor> @Inject internal 
                         .removeValue()
                         .addOnCompleteListener {
                             getView()?.hideProgress()
-                            if(it.isSuccessful){
+                            if (it.isSuccessful) {
                                 getView()?.orderSuccess("Success")
-                            }else{
+                            } else {
                                 getView()?.orderFailed("Failed")
                             }
                         }
@@ -55,4 +56,28 @@ class OrderPresenter<V : OrderMVPView, I : OrderMVPInteractor> @Inject internal 
         }
 
     }
+
+    override fun checkInforUserOrder(userID: String) {
+        getView()?.showProgress()
+        interactor?.getFirebase()?.reference?.child("Order")?.child(userID)
+            ?.addValueEventListener(object : ValueEventListener {
+                override fun onCancelled(p0: DatabaseError) {
+                    getView()?.hideProgress()
+                    getView()?.checkInforFail(p0.message)
+                }
+
+                override fun onDataChange(p0: DataSnapshot) {
+                    getView()?.hideProgress()
+                    val list = arrayListOf<Order>()
+                    for (i in p0.children) {
+                        val order = i.getValue(Order::class.java)
+                        order?.let { list.add(it) }
+                    }
+                    if (list.size != 0) {
+                        getView()?.checkInforSuccess(list[list.size - 1])
+                    }
+                }
+            })
+    }
+
 }

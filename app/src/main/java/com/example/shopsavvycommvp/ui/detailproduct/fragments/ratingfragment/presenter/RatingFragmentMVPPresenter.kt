@@ -6,12 +6,14 @@ import com.example.shopsavvycommvp.ui.detailproduct.fragments.ratingfragment.vie
 
 interface RatingFragmentMVPPresenter :
     MVPPresenter<RatingFragmentMVPView, RatingFragmentMVPInteractor> {
-    fun getIdProduct(idProduct: String)
+    fun getCommentFollowProduct(idProduct: Int)
     fun getUpLoadreply(
         username: String,
         image: String,
         content: String,
-        idComment: Int
+        idComment: Int,
+        newIdReply: Int,
+        idProduct: Int
     )
 
     fun getUpLoadComment(
@@ -19,6 +21,7 @@ interface RatingFragmentMVPPresenter :
         images: String,
         content: String,
         reviews: Int,
-        idProduct: Int
+        idProduct: Int,
+        newIdComment: Int
     )
 }

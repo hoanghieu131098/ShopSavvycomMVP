@@ -10,12 +10,6 @@ import com.google.firebase.database.FirebaseDatabase
 import io.reactivex.Observable
 
 interface HomeFragmentMVPInteractor : MVPInteractor{
-    fun getproductAll(key: String): Observable<List<Product>>
-    fun getcategoryAll(): Observable<List<Category>>
-
     fun getFirebase(): FirebaseDatabase
     fun getAccount(): FirebaseAuth
-
-    fun searchProduct(q: String?) : Observable<List<Product>>
-
 }

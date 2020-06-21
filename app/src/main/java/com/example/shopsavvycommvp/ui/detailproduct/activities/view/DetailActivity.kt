@@ -52,15 +52,9 @@ class DetailActivity : BaseActivity(), DetailProductMVPView, HasSupportFragmentI
     private var mProduct: Product? = null
     private lateinit var mslideradapter: SliderAdapter
     private var description = MutableLiveData<Product>()
-    private var idproduct = MutableLiveData<String>()
-
 
     fun getDescription(): MutableLiveData<Product> {
         return description
-    }
-
-    fun getIdProduct(): MutableLiveData<String> {
-        return idproduct
     }
 
     override fun setUp() {
@@ -140,11 +134,8 @@ class DetailActivity : BaseActivity(), DetailProductMVPView, HasSupportFragmentI
     }
 
     private fun receiveDatafromHome() {
-        val intent = intent
         mProduct = intent.getSerializableExtra(AppConstants.INTENT_ITEM_TO_DETAIL) as Product
-        Log.d("testProduct", mProduct!!.id)
         description.postValue(mProduct)
-        idproduct.postValue(mProduct!!.id)
     }
 
     override fun onResponse(msg: String) {

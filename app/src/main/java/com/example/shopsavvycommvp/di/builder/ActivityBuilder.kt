@@ -1,5 +1,9 @@
 package com.example.shopsavvycommvp.di.builder
 
+import com.example.shopsavvycommvp.ui.admin.AdminActivityModule
+import com.example.shopsavvycommvp.ui.admin.view.AdminActivity
+import com.example.shopsavvycommvp.ui.admindetail.AdminDetailActivityModule
+import com.example.shopsavvycommvp.ui.admindetail.view.AdminDetailActivity
 import com.example.shopsavvycommvp.ui.detailcategory.DetailCategoryModule
 import com.example.shopsavvycommvp.ui.detailcategory.view.DetailCategoryActivity
 import com.example.shopsavvycommvp.ui.detailorder.DetailOrderActivityModule
@@ -66,6 +70,12 @@ abstract class ActivityBuilder {
 
     @ContributesAndroidInjector(modules = [(DetailOrderActivityModule::class)])
     abstract fun bindDetailOrderActivity(): DetailOrderActivity
+
+    @ContributesAndroidInjector(modules = [(AdminActivityModule::class)])
+    abstract fun bindAdminActivity(): AdminActivity
+
+    @ContributesAndroidInjector(modules = [(AdminDetailActivityModule::class)])
+    abstract fun bindAdminDetail(): AdminDetailActivity
 
 
 }

@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tool="http://schemas.android.com/tools"
     android:layout_margin="@dimen/padding_15dp"
 
     android:orientation="vertical">
@@ -35,21 +36,21 @@
                 android:id="@+id/tv_item_name_cart"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:lines="2"
-                android:text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                tool:text="aaaaaaaaaaaaaaaaaaaaaaa"
+                android:fontFamily="@font/noto_sans_regular"
                 android:textColor="@color/Black_tv_name_cart"
-                android:textSize="@dimen/tv_size_16sp" />
+                android:textSize="@dimen/_13ssp" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_item_price_cart"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_5dp"
-                android:text="$ 24.0"
+                tool:text="$ 24.0"
                 android:textColor="@color/colorPrimary"
-                android:textSize="@dimen/tv_size_15sp"
-                android:textStyle="bold" />
+                android:textSize="@dimen/_12ssp"
+                android:fontFamily="@font/noto_sans_bold"
+                />
 
 
         </LinearLayout>
@@ -73,33 +74,35 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_item_minus_cart"
-            android:layout_width="@dimen/padding_30dp"
-            android:layout_height="25dp"
-            android:background="@drawable/custom_bg_item_minus_plus_cart"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:padding="@dimen/_7sdp"
             android:src="@drawable/ic_minus" />
 
         <LinearLayout
             android:layout_width="100dp"
-            android:layout_height="25dp"
+            android:layout_height="wrap_content"
             android:gravity="center"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:padding="@dimen/_2sdp"
             android:background="@drawable/custom_bg_item_minus_plus_cart"
             android:orientation="vertical">
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_item_number_cart"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="5"
+                tool:text="45"
                 android:textColor="#FF1000"
-
-                android:textSize="@dimen/tv_size_18sp" />
+                android:textSize="@dimen/_11ssp" />
         </LinearLayout>
 
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_item_plus_cart"
-            android:layout_width="@dimen/padding_30dp"
-            android:layout_height="25dp"
-            android:background="@drawable/custom_bg_item_minus_plus_cart"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:padding="@dimen/_7sdp"
             android:src="@drawable/ic_plus" />
     </LinearLayout>
 

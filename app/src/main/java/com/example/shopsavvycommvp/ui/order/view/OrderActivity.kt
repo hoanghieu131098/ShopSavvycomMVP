@@ -19,9 +19,7 @@ import kotlinx.android.synthetic.main.activity_order.*
 import javax.inject.Inject
 
 class OrderActivity : BaseActivity(), OrderMVPView {
-    override fun onReponseRemoveCart(msg: String) {
-
-    }
+    override fun onReponseRemoveCart(msg: String) {}
 
     override fun orderFailed(msg: String) {
         toat(msg)
@@ -29,14 +27,21 @@ class OrderActivity : BaseActivity(), OrderMVPView {
 
     override fun orderSuccess(msg: String) {
         toat(msg)
-        openMainActivity()
-    }
-
-    private fun openMainActivity() {
-        startActivity(Intent(this,MainActivity::class.java))
         finish()
     }
 
+    override fun checkInforFail(msg: String) {
+        this.showError(msg)
+    }
+
+    override fun checkInforSuccess(lastOrder: Order) {
+        ed_phone_number.setText(lastOrder.phoneNumber)
+        edt_diachi.setText(lastOrder.address)
+    }
+
+    override fun onBackPressed() {
+        finish()
+    }
     override val layoutId: Int
         get() = R.layout.activity_order
 
@@ -56,9 +61,14 @@ class OrderActivity : BaseActivity(), OrderMVPView {
         setonClickLisener()
     }
 
+    private fun checkInforUserLastOrder(userID: String) {
+        presenter.checkInforUserOrder(userID)
+    }
+
     private fun updateHeader(user: FirebaseUser) {
         img_Profile_Order.loadImg(user.photoUrl.toString())
         tv_Username_Profile_Order.text = user.displayName
+        checkInforUserLastOrder(user.uid)
     }
 
     private fun setonClickLisener() {

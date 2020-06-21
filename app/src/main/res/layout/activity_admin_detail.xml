@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:background="@color/White"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/toolbarAdmin"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_50dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorPrimary"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/margin_10dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imvBack"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="@dimen/padding_30dp"
+            android:layout_height="@dimen/padding_30dp"
+            android:src="@drawable/ic_back"
+            android:tint="@color/White" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="Admin Detail"
+            android:textColor="@color/White"
+            android:textSize="@dimen/tv_size_username_22sp"
+            android:textStyle="bold" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:scrollbars="none"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:paddingBottom="50dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTitleAdminDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                tool:text="Thêm sản phẩm"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18sp"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvNameProductLabel"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                style="@style/StyleTitleFieldSmallTextSize"
+                android:text="Tên sản phẩm" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/edtNameProduct"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_create_or_edit_btn"
+                android:hint="@string/ed_lable_name_product"
+                android:padding="15dp"
+                android:textColorHint="@color/gray_datelove"
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvDescriptionProductLabel"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                style="@style/StyleTitleFieldSmallTextSize"
+                android:text="Thông tin sản phẩm" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/edtDescriptionProduct"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_create_or_edit_btn"
+                android:hint="@string/ed_lable_date_create"
+                android:padding="15dp"
+                android:textColorHint="@color/gray_datelove"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvPriceProductLabel"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                style="@style/StyleTitleFieldSmallTextSize"
+                android:text="Giá sản phẩm" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/edtPriceProduct"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:background="@drawable/bg_create_or_edit_btn"
+                android:hint="@string/edt_lable_price_product"
+                android:padding="15dp"
+                android:textColorHint="@color/gray_datelove"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvCategoryProductLabel"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                style="@style/StyleTitleFieldSmallTextSize"
+                android:text="Loại sản phẩm" />
+
+          <RelativeLayout
+              android:id="@+id/rlChoiseCategory"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+              <androidx.appcompat.widget.AppCompatTextView
+                  android:id="@+id/tvCategoryProduct"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:background="@drawable/bg_create_or_edit_btn"
+                  android:padding="15dp"
+                  android:hint="Thể loại"
+                  android:textColorHint="@color/gray_datelove"
+                  android:textColor="@android:color/black"
+                  android:textSize="16sp"
+                  />
+              <androidx.appcompat.widget.AppCompatImageView
+                  android:clickable="false"
+                  android:layout_width="@dimen/_25sdp"
+                  android:layout_height="@dimen/_25sdp"
+                  android:src="@drawable/ic_down"
+                  android:layout_alignParentEnd="true"
+                  android:layout_centerVertical="true"
+                  android:layout_marginEnd="@dimen/_10sdp"/>
+          </RelativeLayout>
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvImageProductLabel"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                style="@style/StyleTitleFieldSmallTextSize"
+                android:text="Chọn  ảnh cho sản phẩm" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvImageCreate"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_120sdp"
+                app:cardBackgroundColor="#80D6D4D4"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="0dp"
+                app:layout_constraintTop_toBottomOf="@+id/tvChooseImage">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imvChooseImvCreate"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_library_add" />
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/btnAdminDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/bg_btn_save_admin_detail"
+                android:gravity="center"
+                android:padding="15dp"
+                android:text="@string/tv_lable_save"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
