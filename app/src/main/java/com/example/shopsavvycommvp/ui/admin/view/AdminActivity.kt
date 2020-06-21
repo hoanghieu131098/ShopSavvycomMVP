@@ -61,11 +61,11 @@ class AdminActivity : BaseActivity(), AdminActivityMVPView, ProductAllAdapter.Cl
 
     @SuppressLint("RestrictedApi")
     private fun showPopUp(product: Product, view: View) {
-        val menuBuilder = MenuBuilder(applicationContext)
-        val inflater = MenuInflater(applicationContext)
+        val menuBuilder = MenuBuilder(this)
+        val inflater = MenuInflater(this)
         inflater.inflate(R.menu.menu_option_admin_product, menuBuilder)
         @SuppressLint("RestrictedApi")
-        val optionsMenu = MenuPopupHelper(applicationContext, menuBuilder, view)
+        val optionsMenu = MenuPopupHelper(this, menuBuilder, view)
         optionsMenu.setForceShowIcon(true)
         menuBuilder.setCallback(object : MenuBuilder.Callback {
             override fun onMenuItemSelected(
